@@ -7,9 +7,8 @@ import android.util.Log;
 import java.util.List;
 
 /**
- * Created by flavio.depedis on 12/05/2017.
+ * Created by flavio.depedis on 15/09/2017.
  */
-
 public class BookLoader extends AsyncTaskLoader<List<Book>> {
 
     /** Tag for log messages */

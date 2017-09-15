@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter;
 
 import java.util.List;
 
+/**
+ * Created by flavio.depedis on 15/09/2017.
+ */
 public class BookAdapter  extends ArrayAdapter<Book> {
 
     /**
