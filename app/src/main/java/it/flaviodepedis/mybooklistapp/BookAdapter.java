@@ -35,8 +35,8 @@ public class BookAdapter  extends ArrayAdapter<Book> {
                     R.layout.activity_book_list_item, parent, false);
         }
 
-        // Find the meteo at the given position in the list of meteos
-        Book currentMeteo = getItem(position);
+        // Find the book at the given position in the list of books
+        Book currentBook = getItem(position);
 
 
 

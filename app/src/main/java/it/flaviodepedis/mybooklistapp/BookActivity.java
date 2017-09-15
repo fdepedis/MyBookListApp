@@ -35,7 +35,7 @@ public class BookActivity extends AppCompatActivity
     private TextView mEmptyStateTextView;
 
     /**
-     * Adapter for the list of meteo
+     * Adapter for the list of book
      */
     private BookAdapter mAdapter;
 
