@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -30,6 +31,9 @@ public class BookAdapter extends ArrayAdapter<Book> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         String imageIcon = "";
+        double price = 0;
+        String currencyCode = "";
+        float averageRating = 0;
 
         // Check if there is an existing list item view (called convertView) that we can reuse,
         // otherwise, if convertView is null, then inflate a new list item layout.
@@ -42,20 +46,37 @@ public class BookAdapter extends ArrayAdapter<Book> {
         // Find the book at the given position in the list of books
         Book currentBook = getItem(position);
 
-        TextView tvTitle = (TextView) listItemView.findViewById(R.id.tv_title);
+        // Set title of the book
+        TextView tvTitle = listItemView.findViewById(R.id.tv_title);
         tvTitle.setText(currentBook.getmTitle());
 
-        ImageView imgIconBook = (ImageView) listItemView.findViewById(R.id.book_icon);
-        // Drawable image = currentBook.getmThumbnail();
-        // imgIconBook.setBackgroundResource(currentBook.getmThumbnail());
+        // Set authors of the book
+        TextView tvAuthors = listItemView.findViewById(R.id.tv_author);
+        tvAuthors.setText(currentBook.getmAuthor());
 
-        // Set Image if available
+        // Set image icon of the book if available
+        ImageView imgIconBook = listItemView.findViewById(R.id.book_icon);
         imageIcon = currentBook.getmThumbnail();
         if (imageIcon != null && imageIcon.length() > 0) {
             Picasso.with(getContext()).load(currentBook.getmThumbnail()).into(imgIconBook);
         } else {
             Picasso.with(getContext()).load(R.drawable.image_not_found).into(imgIconBook);
         }
+
+        // Set the published date
+        TextView tvPublishedDate = listItemView.findViewById(R.id.tv_publisher_date);
+        tvPublishedDate.setText(currentBook.getmPublishedDate());
+
+        // Set the price of the book
+        TextView tvPrice = listItemView.findViewById(R.id.tv_price);
+        price = currentBook.getmAmount();
+        currencyCode = currentBook.getmCurrencyCode();
+        tvPrice.setText(String.valueOf(price) + " " + currencyCode );
+
+        // Set the average rating of the book
+        RatingBar ratingBar = listItemView.findViewById(R.id.rating_bar);
+        averageRating = (float) currentBook.getmAverageRating();
+        ratingBar.setRating(averageRating);
 
 
         return listItemView;

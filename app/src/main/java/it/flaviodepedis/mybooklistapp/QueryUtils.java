@@ -171,6 +171,8 @@ public final class QueryUtils {
             JSONObject currVolumeInfo;
             JSONArray authorsArray;
             JSONObject imageLinks;
+            JSONObject currSaleInfo;
+            JSONObject listPrice;
 
             String title = "";
             String authorsList = "";
@@ -197,7 +199,11 @@ public final class QueryUtils {
 
                 itemBook = baseJsonArray.getJSONObject(i);
 
+                // current volume information
                 currVolumeInfo = itemBook.getJSONObject("volumeInfo");
+
+                // current sales information
+                currSaleInfo = itemBook.getJSONObject("saleInfo");
 
                 // Get Title
                 title = currVolumeInfo.getString("title");
@@ -227,6 +233,11 @@ public final class QueryUtils {
                 // Get the thumbnail of the book
                 imageLinks = currVolumeInfo.getJSONObject("imageLinks");
                 thumbnail = imageLinks.getString("thumbnail");
+
+                // Get price and currency code of the book
+                listPrice = currSaleInfo.getJSONObject("listPrice");
+                price = listPrice.getDouble("amount");
+                currencyCode = listPrice.getString("currencyCode");
 
 
                 Log.i(LOG_TAG, "Log - extractFeatureFromJson() method");
