@@ -4,4 +4,24 @@
     <!-- Size for splash logo -->
     <dimen name="splash_size">250dp</dimen>
 
+    <!-- Size for card radius -->
+    <dimen name="card_radius">8dp</dimen>
+
+    <!-- Size for card elevation -->
+    <dimen name="card_elevation">4dp</dimen>
+
+    <!-- Height of each list item -->
+    <dimen name="list_item_height">120dp</dimen>
+
+    <!-- Start padding in list item -->
+    <dimen name="start_padding">16dp</dimen>
+
+    <!-- Height of each TextView in the list item -->
+    <dimen name="text_view_list_item_height">44dp</dimen>
+
+    <!-- Padding Bottom size -->
+    <dimen name="padding">10dp</dimen>
+
+    <!-- TextView Pricing size -->
+    <dimen name="pricing_size">80dp</dimen>
 </resources>

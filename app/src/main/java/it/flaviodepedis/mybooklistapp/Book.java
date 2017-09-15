@@ -8,52 +8,84 @@ import java.io.Serializable;
 
 public class Book implements Serializable {
 
-    /** Title of the book */
+    /**
+     * Title of the book
+     */
     private String mTitle;
 
-    /** Author of the book */
+    /**
+     * Author of the book
+     */
     private String mAuthor;
 
-    /** Editor of the book */
+    /**
+     * Editor of the book
+     */
     private String mPublisher;
 
-    /** Date of publish book */
+    /**
+     * Date of publish book
+     */
     private String mPublishedDate;
 
-    /** Main description of the book */
+    /**
+     * Main description of the book
+     */
     private String mDescription;
 
-    /** Count of the pages of the book */
+    /**
+     * Count of the pages of the book
+     */
     private int mPageCount;
 
-    /** Type of book */
+    /**
+     * Type of book
+     */
     private String mPrintType;
 
-    /** Category of the book */
+    /**
+     * Category of the book
+     */
     private String mCategory;
 
-    /** Rating of the book */
-    private double mRating;
+    /**
+     * Average Rating of the book
+     */
+    private double mAverageRating;
 
-    /** Image of the book */
+    /**
+     * Image of the book
+     */
     private String mThumbnail;
 
-    /** Price of the book */
+    /**
+     * Price of the book
+     */
     private double mAmount;
 
-    /** Currency of the book */
+    /**
+     * Currency of the book
+     */
     private String mCurrencyCode;
 
-    /** eBook format of the book*/
+    /**
+     * eBook format of the book
+     */
     private boolean isEbook;
 
-    /** ePub format of the book*/
+    /**
+     * ePub format of the book
+     */
     private boolean isEpub;
 
-    /** PDF format of the book*/
+    /**
+     * PDF format of the book
+     */
     private boolean isPdf;
 
-    /** Link where buying the book*/
+    /**
+     * Link where buying the book
+     */
     private String mBuyLink;
 
     /**
@@ -61,7 +93,7 @@ public class Book implements Serializable {
      */
     public Book(String mTitle, String mAuthor, String mPublisher, String mPublishedDate,
                 String mDescription, int mPageCount, String mPrintType, String mCategory,
-                double mRating, String mThumbnail, double mAmount, String mCurrencyCode,
+                double mAverageRating, String mThumbnail, double mAmount, String mCurrencyCode,
                 boolean isEbook, boolean isEpub, boolean isPdf, String mBuyLink) {
 
         this.mTitle = mTitle;
@@ -72,7 +104,7 @@ public class Book implements Serializable {
         this.mPageCount = mPageCount;
         this.mPrintType = mPrintType;
         this.mCategory = mCategory;
-        this.mRating = mRating;
+        this.mAverageRating = mAverageRating;
         this.mThumbnail = mThumbnail;
         this.mAmount = mAmount;
         this.mCurrencyCode = mCurrencyCode;
@@ -141,8 +173,8 @@ public class Book implements Serializable {
     /**
      * Returns the rating of the book.
      */
-    public double getmRating() {
-        return mRating;
+    public double getmAverageRating() {
+        return mAverageRating;
     }
 
     /**
@@ -201,62 +233,107 @@ public class Book implements Serializable {
         this.mTitle = mTitle;
     }
 
+    /**
+     * Set the author of the book.
+     */
     public void setmAuthor(String mAuthor) {
         this.mAuthor = mAuthor;
     }
 
+    /**
+     * Set the editor publisher of the book.
+     */
     public void setmPublisher(String mPublisher) {
         this.mPublisher = mPublisher;
     }
 
+    /**
+     * Set the published date of the book.
+     */
     public void setmPublishedDate(String mPublishedDate) {
         this.mPublishedDate = mPublishedDate;
     }
 
+    /**
+     * Set the description of the book.
+     */
     public void setmDescription(String mDescription) {
         this.mDescription = mDescription;
     }
 
+    /**
+     * Set the total pages of the book.
+     */
     public void setmPageCount(int mPageCount) {
         this.mPageCount = mPageCount;
     }
 
+    /**
+     * Set the print type of the book.
+     */
     public void setmPrintType(String mPrintType) {
         this.mPrintType = mPrintType;
     }
 
+    /**
+     * Set the category of the book.
+     */
     public void setmCategory(String mCategory) {
         this.mCategory = mCategory;
     }
 
-    public void setmRating(double mRating) {
-        this.mRating = mRating;
+    /**
+     * Set the rating of the book.
+     */
+    public void setmRating(double mAverageRating) {
+        this.mAverageRating = mAverageRating;
     }
 
+    /**
+     * Set the image of the book.
+     */
     public void setmThumbnail(String mThumbnail) {
         this.mThumbnail = mThumbnail;
     }
 
+    /**
+     * Set the price of the book.
+     */
     public void setmAmount(double mAmount) {
         this.mAmount = mAmount;
     }
 
+    /**
+     * Set the currency of the price of the book.
+     */
     public void setmCurrencyCode(String mCurrencyCode) {
         this.mCurrencyCode = mCurrencyCode;
     }
 
+    /**
+     * Set the eBook format type of the book.
+     */
     public void setEbook(boolean ebook) {
         isEbook = ebook;
     }
 
+    /**
+     * Set the ePub format type of the book.
+     */
     public void setEpub(boolean epub) {
         isEpub = epub;
     }
 
+    /**
+     * Set the PDF format type of the book.
+     */
     public void setPdf(boolean pdf) {
         isPdf = pdf;
     }
 
+    /**
+     * Set the link to buy the book.
+     */
     public void setmBuyLink(String mBuyLink) {
         this.mBuyLink = mBuyLink;
     }

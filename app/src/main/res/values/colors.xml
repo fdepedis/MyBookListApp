@@ -11,4 +11,16 @@
 
     <!-- Color for activity main -->
     <color name="colorMainActivity">#fdfdfe</color>
+
+    <!-- Primary color for the background list item -->
+    <color name="colorBackgroundListItem">#e7f0e2</color>
+
+    <!-- Primary color for the text in the list item -->
+    <color name="primary_text">#212121</color>
+
+    <!-- Secondary color for the text in the list item -->
+    <color name="secondary_text">#757575</color>
+
+    <!-- Color price background -->
+    <color name="colorPriceBackground">#3f556c</color>
 </resources>

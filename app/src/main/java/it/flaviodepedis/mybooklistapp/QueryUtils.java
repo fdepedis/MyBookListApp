@@ -6,6 +6,7 @@ package it.flaviodepedis.mybooklistapp;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.text.TextUtils;
@@ -164,16 +165,80 @@ public final class QueryUtils {
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
         try {
 
-            // Create a JSONObject from the JSON response string
-            JSONObject baseJsonResponse = new JSONObject(bookJSON);
+            JSONObject baseJsonResponse;
+            JSONArray baseJsonArray;
+            JSONObject itemBook;
+            JSONObject currVolumeInfo;
+            JSONArray authorsArray;
+            JSONObject imageLinks;
+
+            String title = "";
+            String authorsList = "";
+            String publisher = "";
+            String publishedDate = "";
+            String description = "";
+            int pageCount = 0;
+            String printType = "";
+            String category = "";
+            double averageRating = 0.0;
+            String thumbnail = "";
+            double price = 0.0;
+            String currencyCode = "";
+            boolean isEbook = false;
+            boolean isEpub = false;
+            boolean isPdf = false;
+            String mBuyLink = "";
+
+            baseJsonResponse = new JSONObject(bookJSON);
+
+            baseJsonArray = baseJsonResponse.getJSONArray("items");
+
+            for (int i = 0; i < baseJsonArray.length(); i++) {
+
+                itemBook = baseJsonArray.getJSONObject(i);
+
+                currVolumeInfo = itemBook.getJSONObject("volumeInfo");
+
+                // Get Title
+                title = currVolumeInfo.getString("title");
+
+                // Get List of Author if there are more than one
+                authorsArray = currVolumeInfo.getJSONArray("authors");
+
+                // Verify if the author is one or more then one
+                if (authorsArray.length() > 1) {
+                    authorsList = authorsArray.join(", ").replaceAll("\"", "");
+                } else if (authorsArray.length() == 1) {
+                    authorsList = authorsArray.getString(0);
+                } else if (authorsArray.length() == 0) {
+                    authorsList = "";
+                }
+
+                // Get value for average rating if the key exists
+                if (currVolumeInfo.has("averageRating")) {
+                    averageRating = currVolumeInfo.getDouble("averageRating");
+                } else {
+                    averageRating = 0.0;
+                }
+
+                // Get the published date of the book
+                publishedDate = currVolumeInfo.getString("publishedDate");
+
+                // Get the thumbnail of the book
+                imageLinks = currVolumeInfo.getJSONObject("imageLinks");
+                thumbnail = imageLinks.getString("thumbnail");
 
 
+                Log.i(LOG_TAG, "Log - extractFeatureFromJson() method");
+            }
             // Create a new {@link Book} object with the dateTime, minTemp, maxTemp, desc,
             // icon, wind from the JSON response.
-           // Book book = new Book();
+            Book book = new Book(title, authorsList, publisher, publishedDate, description,
+                    pageCount, printType, category, averageRating, thumbnail, price, currencyCode,
+                    isEbook, isEpub, isPdf, mBuyLink);
 
             // Add the new {@link Book} to the list of books.
-            //books.add(book);
+            books.add(book);
         } catch (JSONException e) {
             // If an error is thrown when executing any of the above statements in the "try" block,
             // catch the exception here, so the app doesn't crash. Print a log message

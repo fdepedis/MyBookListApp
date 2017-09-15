@@ -31,7 +31,7 @@ public class BookLoader extends AsyncTaskLoader<List<Book>> {
     @Override
     protected void onStartLoading() {
 
-        Log.w(LOG_TAG, "Log - onStartLoading() method");
+        Log.i(LOG_TAG, "Log - onStartLoading() method");
 
         forceLoad();
     }
