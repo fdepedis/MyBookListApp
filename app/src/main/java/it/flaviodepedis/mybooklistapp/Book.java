@@ -193,4 +193,71 @@ public class Book implements Serializable {
     public String getmBuyLink() {
         return mBuyLink;
     }
+
+    /**
+     * Set the title of the book.
+     */
+    public void setmTitle(String mTitle) {
+        this.mTitle = mTitle;
+    }
+
+    public void setmAuthor(String mAuthor) {
+        this.mAuthor = mAuthor;
+    }
+
+    public void setmPublisher(String mPublisher) {
+        this.mPublisher = mPublisher;
+    }
+
+    public void setmPublishedDate(String mPublishedDate) {
+        this.mPublishedDate = mPublishedDate;
+    }
+
+    public void setmDescription(String mDescription) {
+        this.mDescription = mDescription;
+    }
+
+    public void setmPageCount(int mPageCount) {
+        this.mPageCount = mPageCount;
+    }
+
+    public void setmPrintType(String mPrintType) {
+        this.mPrintType = mPrintType;
+    }
+
+    public void setmCategory(String mCategory) {
+        this.mCategory = mCategory;
+    }
+
+    public void setmRating(double mRating) {
+        this.mRating = mRating;
+    }
+
+    public void setmThumbnail(String mThumbnail) {
+        this.mThumbnail = mThumbnail;
+    }
+
+    public void setmAmount(double mAmount) {
+        this.mAmount = mAmount;
+    }
+
+    public void setmCurrencyCode(String mCurrencyCode) {
+        this.mCurrencyCode = mCurrencyCode;
+    }
+
+    public void setEbook(boolean ebook) {
+        isEbook = ebook;
+    }
+
+    public void setEpub(boolean epub) {
+        isEpub = epub;
+    }
+
+    public void setPdf(boolean pdf) {
+        isPdf = pdf;
+    }
+
+    public void setmBuyLink(String mBuyLink) {
+        this.mBuyLink = mBuyLink;
+    }
 }
