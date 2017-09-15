@@ -108,7 +108,6 @@ public class BookActivity extends AppCompatActivity
 
         Uri baseUri = Uri.parse(OPEN_BOOK_MAP_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-        uriBuilder.appendQueryParameter("format", "geojson");
         uriBuilder.appendQueryParameter("q", query);
         uriBuilder.appendQueryParameter("maxResults", MAX_RESULT);
 
