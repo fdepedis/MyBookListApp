@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
+    <ImageView
+        android:id="@+id/splash_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_splash_screen"
+        android:scaleType="centerCrop"/>
+
     <TextView
         android:id="@+id/text_app_splash"
         android:layout_width="wrap_content"
@@ -12,15 +19,8 @@
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-medium"
         android:textColor="@color/colorPrimary"/>
-
-    <ImageView
-        android:id="@+id/splash_image_view"
-        android:layout_width="@dimen/splash_size"
-        android:layout_height="@dimen/splash_size"
-        android:src="@mipmap/ic_launcher"
-        android:layout_gravity="center"/>
 
 </FrameLayout>

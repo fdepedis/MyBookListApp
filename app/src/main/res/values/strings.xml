@@ -1,8 +1,15 @@
 <resources>
     <!-- String for app name -->
-    <string name="app_name">MyBookListApp</string>
+    <string name="app_name">My Book List App</string>
 
     <!-- Text to display application name in splash screen -->
     <string name="app_name_splash">Book Listing</string>
+
+    <!-- Text to Button Search -->
+    <string name="btnSearch">Search</string>
+
+    <!-- Text for Hint EditText Search -->
+    <string name="hint_context_book">Insert context book</string>
+
 
 </resources>

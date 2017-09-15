@@ -59,7 +59,11 @@ public class Book implements Serializable {
     /**
      * Constructs a new {@link Book} object.
      */
-    public Book(String mTitle, String mAuthor, String mPublisher, String mPublishedDate, String mDescription, int mPageCount, String mPrintType, String mCategory, double mRating, String mThumbnail, double mAmount, String mCurrencyCode, boolean isEbook, boolean isEpub, boolean isPdf, String mBuyLink) {
+    public Book(String mTitle, String mAuthor, String mPublisher, String mPublishedDate,
+                String mDescription, int mPageCount, String mPrintType, String mCategory,
+                double mRating, String mThumbnail, double mAmount, String mCurrencyCode,
+                boolean isEbook, boolean isEpub, boolean isPdf, String mBuyLink) {
+
         this.mTitle = mTitle;
         this.mAuthor = mAuthor;
         this.mPublisher = mPublisher;
