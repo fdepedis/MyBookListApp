@@ -11,5 +11,10 @@
     <!-- Text for Hint EditText Search -->
     <string name="hint_context_book">Insert context book</string>
 
+    <!-- Error message when there is no internet connectivity -->
+    <string name="no_internet_connection">No internet connection.</string>
+
+    <!-- Text to display no book information services -->
+    <string name="no_book">Nessun book disponibile</string>
 
 </resources>
