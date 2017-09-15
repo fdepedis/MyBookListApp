@@ -1,0 +1,8 @@
+<resources>
+    <!-- String for app name -->
+    <string name="app_name">MyBookListApp</string>
+
+    <!-- Text to display application name in splash screen -->
+    <string name="app_name_splash">Book Listing App</string>
+
+</resources>
