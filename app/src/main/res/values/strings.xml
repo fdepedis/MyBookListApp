@@ -3,6 +3,6 @@
     <string name="app_name">MyBookListApp</string>
 
     <!-- Text to display application name in splash screen -->
-    <string name="app_name_splash">Book Listing App</string>
+    <string name="app_name_splash">Book Listing</string>
 
 </resources>
