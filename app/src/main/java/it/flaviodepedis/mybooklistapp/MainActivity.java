@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 nameSearch = etSearch.getText().toString();
 
                 if (nameSearch != null && !nameSearch.isEmpty()) {
-                    Intent setIntent = new Intent(MainActivity.this, BookListActivity.class);
+                    Intent setIntent = new Intent(MainActivity.this, BookActivity.class);
                     setIntent.putExtra("nameSearch", nameSearch);
                     startActivity(setIntent);
                 } else {

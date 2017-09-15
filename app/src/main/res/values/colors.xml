@@ -8,4 +8,7 @@
 
     <!-- Accent color of the app -->
     <color name="colorAccent">#10CAC9</color>
+
+    <!-- Color for activity main -->
+    <color name="colorMainActivity">#fdfdfe</color>
 </resources>
