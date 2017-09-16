@@ -13,7 +13,7 @@
     <color name="colorMainActivity">#fdfdfe</color>
 
     <!-- Primary color for the background list item -->
-    <color name="colorBackgroundListItem">#e7f0e2</color>
+    <color name="colorBackgroundListItem">#f0ece2</color>
 
     <!-- Primary color for the text in the list item -->
     <color name="primary_text">#212121</color>

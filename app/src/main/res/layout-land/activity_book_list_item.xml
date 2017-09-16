@@ -27,14 +27,15 @@
 
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_width="@dimen/title_item_width"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/book_icon"
-                android:ellipsize="end"
                 android:maxLines="1"
+                android:ellipsize="end"
                 android:paddingBottom="@dimen/padding"
-                android:paddingStart="@dimen/start_padding"
                 android:paddingTop="@dimen/padding"
+                android:paddingStart="@dimen/start_padding"
+                android:paddingEnd="@dimen/end_padding"
                 android:text="title"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/primary_text"
@@ -43,7 +44,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/list_item_height"
-                android:layout_alignLeft="@id/tv_title"
+                android:layout_alignStart="@id/tv_title"
                 android:layout_below="@id/tv_title"
                 android:background="@color/colorBackgroundListItem"
                 android:orientation="vertical">
@@ -56,11 +57,12 @@
 
                     <TextView
                         android:id="@+id/tv_author"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingBottom="@dimen/padding"
-                        android:ellipsize="end"
+                        android:paddingEnd="@dimen/end_padding"
                         android:maxLines="1"
+                        android:ellipsize="end"
                         android:text="author"
                         android:textAppearance="?android:textAppearanceSmall"
                         android:textColor="@color/secondary_text" />

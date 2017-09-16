@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nameSearch = etSearch.getText().toString();
+                nameSearch = etSearch.getText().toString().trim();
 
                 if (nameSearch != null && !nameSearch.isEmpty()) {
                     Intent setIntent = new Intent(MainActivity.this, BookActivity.class);

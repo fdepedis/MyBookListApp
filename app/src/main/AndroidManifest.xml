@@ -12,7 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/label_main"
+            android:configChanges="orientation|screenSize|keyboardHidden" >
+        </activity>
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
@@ -22,7 +26,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BookActivity" />
+        <activity
+            android:name=".BookActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/label_booklist"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".BookAdapter" />
         <activity android:name=".BookLoader"></activity>
     </application>

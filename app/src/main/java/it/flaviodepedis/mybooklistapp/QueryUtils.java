@@ -172,7 +172,7 @@ public final class QueryUtils {
             JSONArray authorsArray;
             JSONObject imageLinks;
             JSONObject currSaleInfo;
-            JSONObject listPrice;
+            JSONObject retailPrice;
 
             String title = "";
             String authorsList = "";
@@ -205,18 +205,26 @@ public final class QueryUtils {
                 // current sales information
                 currSaleInfo = itemBook.getJSONObject("saleInfo");
 
-                // Get Title
-                title = currVolumeInfo.getString("title");
+                // Get value for Title if the key exists
+                if (currVolumeInfo.has("title")) {
+                    title = currVolumeInfo.getString("title");
+                } else {
+                    title = "";
+                }
 
                 // Get List of Author if there are more than one
-                authorsArray = currVolumeInfo.getJSONArray("authors");
+                if (currVolumeInfo.has("authors")) {
+                    authorsArray = currVolumeInfo.getJSONArray("authors");
 
-                // Verify if the author is one or more then one
-                if (authorsArray.length() > 1) {
-                    authorsList = authorsArray.join(", ").replaceAll("\"", "");
-                } else if (authorsArray.length() == 1) {
-                    authorsList = authorsArray.getString(0);
-                } else if (authorsArray.length() == 0) {
+                    // Verify if the author is one or more then one
+                    if (authorsArray.length() > 1) {
+                        authorsList = authorsArray.join(", ").replaceAll("\"", "");
+                    } else if (authorsArray.length() == 1) {
+                        authorsList = authorsArray.getString(0);
+                    } else if (authorsArray.length() == 0) {
+                        authorsList = "";
+                    }
+                } else {
                     authorsList = "";
                 }
 
@@ -228,33 +236,53 @@ public final class QueryUtils {
                 }
 
                 // Get the published date of the book
-                publishedDate = currVolumeInfo.getString("publishedDate");
+                if (currVolumeInfo.has("publishedDate")) {
+                    publishedDate = currVolumeInfo.getString("publishedDate");
+                    // verify to format correct published date
+                    if (publishedDate.contains("T")) {
+                        publishedDate = publishedDate.substring(0, 10);
+                    }
+                } else {
+                    publishedDate = "";
+                }
 
-                // Get the thumbnail of the book
-                imageLinks = currVolumeInfo.getJSONObject("imageLinks");
-                thumbnail = imageLinks.getString("thumbnail");
+                // Get the thumbnail of the book if the key exists
+                if (currVolumeInfo.has("imageLinks")) {
+                    imageLinks = currVolumeInfo.getJSONObject("imageLinks");
+                    thumbnail = imageLinks.getString("thumbnail");
+                } else {
+                    thumbnail = "";
+                }
 
                 // Get price and currency code of the book
-                listPrice = currSaleInfo.getJSONObject("listPrice");
-                price = listPrice.getDouble("amount");
-                currencyCode = listPrice.getString("currencyCode");
+                if (currSaleInfo.has("retailPrice")) {
+                    retailPrice = currSaleInfo.getJSONObject("retailPrice");
+                    price = retailPrice.getDouble("amount");
+                    currencyCode = retailPrice.getString("currencyCode");
+                } else {
+                    price = 0.0;
+                    currencyCode = "";
+                }
 
+
+                // Create a new {@link Book} object from the JSON response.
+                Book book = new Book(title, authorsList, publisher, publishedDate, description,
+                        pageCount, printType, category, averageRating, thumbnail, price, currencyCode,
+                        isEbook, isEpub, isPdf, mBuyLink);
+
+                // Add the new {@link Book} to the list of books.
+                books.add(book);
 
                 Log.i(LOG_TAG, "Log - extractFeatureFromJson() method");
             }
-            // Create a new {@link Book} object with the dateTime, minTemp, maxTemp, desc,
-            // icon, wind from the JSON response.
-            Book book = new Book(title, authorsList, publisher, publishedDate, description,
-                    pageCount, printType, category, averageRating, thumbnail, price, currencyCode,
-                    isEbook, isEpub, isPdf, mBuyLink);
+        } catch (
+                JSONException e)
 
-            // Add the new {@link Book} to the list of books.
-            books.add(book);
-        } catch (JSONException e) {
+        {
             // If an error is thrown when executing any of the above statements in the "try" block,
             // catch the exception here, so the app doesn't crash. Print a log message
             // with the message from the exception.
-            Log.e("QueryUtils", "Problem parsing the book JSON results", e);
+            Log.e(LOG_TAG, "Problem parsing the book JSON results", e);
         }
 
         // Return the list of books

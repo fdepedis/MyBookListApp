@@ -10,11 +10,26 @@
     <!-- Size for card elevation -->
     <dimen name="card_elevation">4dp</dimen>
 
+    <!-- Width of each image in list item -->
+    <dimen name="list_image_width">100dp</dimen>
+
+    <!-- Height of each image in list item -->
+    <dimen name="list_image_height">140dp</dimen>
+
+    <!-- Width of each list item -->
+    <dimen name="list_item_width">100dp</dimen>
+
     <!-- Height of each list item -->
     <dimen name="list_item_height">140dp</dimen>
 
+    <!-- Width for TextView title -->
+    <dimen name="title_item_width">270dp</dimen>
+
     <!-- Start padding in list item -->
     <dimen name="start_padding">16dp</dimen>
+
+    <!-- End padding in list item -->
+    <dimen name="end_padding">16dp</dimen>
 
     <!-- End margin in list item -->
     <dimen name="end_margin">16dp</dimen>
@@ -24,6 +39,9 @@
 
     <!-- Padding Bottom size -->
     <dimen name="padding">8dp</dimen>
+
+    <!-- Margin price size -->
+    <dimen name="margin_price">8dp</dimen>
 
     <!-- TextView Pricing size -->
     <dimen name="pricing_size">100dp</dimen>

@@ -2,8 +2,14 @@
     <!-- String for app name -->
     <string name="app_name">My Book List App</string>
 
-    <!-- Text to display application name in splash screen -->
+    <!-- Text to display application label in splash screen -->
     <string name="app_name_splash">Book Listing</string>
+
+    <!-- Text to display book list label in activity -->
+    <string name="label_booklist">Book Listing</string>
+
+    <!-- Text to display label of main activity -->
+    <string name="label_main">Book Search</string>
 
     <!-- Text to Button Search -->
     <string name="btnSearch">Search</string>
@@ -15,6 +21,15 @@
     <string name="no_internet_connection">No internet connection.</string>
 
     <!-- Text to display no book information services -->
-    <string name="no_book">Nessun book disponibile</string>
+    <string name="no_book">No book available</string>
+
+    <!-- Text to display no author information -->
+    <string name="no_author">No author available</string>
+
+    <!-- Text to display no published date information -->
+    <string name="no_date">No date available</string>
+
+    <!-- Text to display no price information -->
+    <string name="no_price">No price</string>
 
 </resources>
