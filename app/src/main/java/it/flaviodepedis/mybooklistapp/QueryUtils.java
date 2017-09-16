@@ -169,10 +169,14 @@ public final class QueryUtils {
             JSONArray baseJsonArray;
             JSONObject itemBook;
             JSONObject currVolumeInfo;
-            JSONArray authorsArray;
-            JSONObject imageLinks;
             JSONObject currSaleInfo;
+            JSONObject currAccessInfo;
+            JSONArray authorsArray;
+            JSONArray categoryArray;
+            JSONObject imageLinks;
             JSONObject retailPrice;
+            JSONObject isEpub;
+            JSONObject isPdf;
 
             String title = "";
             String authorsList = "";
@@ -181,14 +185,14 @@ public final class QueryUtils {
             String description = "";
             int pageCount = 0;
             String printType = "";
-            String category = "";
+            String categoryList = "";
             double averageRating = 0.0;
             String thumbnail = "";
             double price = 0.0;
             String currencyCode = "";
             boolean isEbook = false;
-            boolean isEpub = false;
-            boolean isPdf = false;
+            boolean isEpubAvailable = false;
+            boolean isPdfAvailable = false;
             String buyLink = "";
 
             baseJsonResponse = new JSONObject(bookJSON);
@@ -205,6 +209,9 @@ public final class QueryUtils {
                 // current sales information
                 currSaleInfo = itemBook.getJSONObject("saleInfo");
 
+                // current access information
+                currAccessInfo = itemBook.getJSONObject("accessInfo");
+
                 // Get value for Title if the key exists
                 if (currVolumeInfo.has("title")) {
                     title = currVolumeInfo.getString("title");
@@ -212,7 +219,7 @@ public final class QueryUtils {
                     title = "";
                 }
 
-                // Get List of Author if there are more than one
+                // Get List of Author if there are more than one, if exist
                 if (currVolumeInfo.has("authors")) {
                     authorsArray = currVolumeInfo.getJSONArray("authors");
 
@@ -235,7 +242,7 @@ public final class QueryUtils {
                     averageRating = 0.0;
                 }
 
-                // Get the published date of the book
+                // Get the published date of the book if the key exists
                 if (currVolumeInfo.has("publishedDate")) {
                     publishedDate = currVolumeInfo.getString("publishedDate");
                     // verify to format correct published date
@@ -246,6 +253,20 @@ public final class QueryUtils {
                     publishedDate = "";
                 }
 
+                // Get publisher of the book if the key exists
+                if (currVolumeInfo.has("publisher")) {
+                    publisher = currVolumeInfo.getString("publisher");
+                } else {
+                    publisher = "";
+                }
+
+                // Get description of the book if the key exists
+                if (currVolumeInfo.has("description")) {
+                    description = currVolumeInfo.getString("description");
+                } else {
+                    description = "";
+                }
+
                 // Get the thumbnail of the book if the key exists
                 if (currVolumeInfo.has("imageLinks")) {
                     imageLinks = currVolumeInfo.getJSONObject("imageLinks");
@@ -254,7 +275,29 @@ public final class QueryUtils {
                     thumbnail = "";
                 }
 
-                // Get price and currency code of the book
+                // Get the page count of the book if the key exists
+                if (currVolumeInfo.has("pageCount")) {
+                    pageCount = currVolumeInfo.getInt("pageCount");
+                } else {
+                    pageCount = 0;
+                }
+
+                // Get the print type of the book if the key exists
+                if (currVolumeInfo.has("printType")) {
+                    printType = currVolumeInfo.getString("printType");
+                } else {
+                    printType = "";
+                }
+
+                // Get first category if there are more than one, if exist
+                if (currVolumeInfo.has("categories")) {
+                    categoryArray = currVolumeInfo.getJSONArray("categories");
+                    categoryList = categoryArray.getString(0);
+                } else {
+                    categoryList = "";
+                }
+
+                // Get price and currency code of the book if the key exists
                 if (currSaleInfo.has("retailPrice")) {
                     retailPrice = currSaleInfo.getJSONObject("retailPrice");
                     price = retailPrice.getDouble("amount");
@@ -264,11 +307,37 @@ public final class QueryUtils {
                     currencyCode = "";
                 }
 
+                // Get isEbook if the key exists
+                if (currSaleInfo.has("isEbook")) {
+                    isEbook = currSaleInfo.getBoolean("isEbook");
+                } else {
+                    isEbook = false;
+                }
+
+                // Get indicators if ePub versions available
+                if (currAccessInfo.has("epub")) {
+                    isEpub = currAccessInfo.getJSONObject("epub");
+                    if(isEpub.has("isAvailable")){
+                        isEpubAvailable = isEpub.getBoolean("isAvailable");
+                    } else {
+                        isEpubAvailable = false;
+                    }
+                }
+
+                // Get indicators if PDF versions available
+                if (currAccessInfo.has("pdf")) {
+                    isPdf = currAccessInfo.getJSONObject("pdf");
+                    if(isPdf.has("isAvailable")){
+                        isPdfAvailable = isPdf.getBoolean("isAvailable");
+                    } else {
+                        isPdfAvailable = false;
+                    }
+                }
 
                 // Create a new {@link Book} object from the JSON response.
                 Book book = new Book(title, authorsList, publisher, publishedDate, description,
-                        pageCount, printType, category, averageRating, thumbnail, price, currencyCode,
-                        isEbook, isEpub, isPdf, buyLink);
+                        pageCount, printType, categoryList, averageRating, thumbnail, price, currencyCode,
+                        isEbook, isEpubAvailable, isPdfAvailable, buyLink);
 
                 // Add the new {@link Book} to the list of books.
                 books.add(book);

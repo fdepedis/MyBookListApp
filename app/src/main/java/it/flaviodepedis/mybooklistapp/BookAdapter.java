@@ -54,7 +54,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
         TextView tvTitle = listItemView.findViewById(R.id.tv_title);
         tvTitle.setText(currentBook.getmTitle());
 
-        // Set authors of the book
+        // Set authors of the book if available
         TextView tvAuthors = listItemView.findViewById(R.id.tv_author);
         author = currentBook.getmAuthor();
         if(!author.isEmpty()){
@@ -73,7 +73,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
             Picasso.with(getContext()).load(R.drawable.image_not_found).into(imgIconBook);
         }
 
-        // Set the published date
+        // Set the published date if available
         TextView tvPublishedDate = listItemView.findViewById(R.id.tv_publisher_date);
         publishedDate = currentBook.getmPublishedDate();
         if(!publishedDate.isEmpty()){
@@ -82,7 +82,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
             tvPublishedDate.setText(R.string.no_date);
         }
 
-        // Set the price of the book
+        // Set the price of the book if available
         TextView tvPrice = listItemView.findViewById(R.id.tv_price);
         price = currentBook.getmAmount();
         currencyCode = currentBook.getmCurrencyCode();
@@ -96,6 +96,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
         RatingBar ratingBar = listItemView.findViewById(R.id.rating_bar);
         averageRating = (float) currentBook.getmAverageRating();
         ratingBar.setRating(averageRating);
+
 
 
         return listItemView;
