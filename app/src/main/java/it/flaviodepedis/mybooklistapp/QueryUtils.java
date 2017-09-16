@@ -194,6 +194,7 @@ public final class QueryUtils {
             boolean isEpubAvailable = false;
             boolean isPdfAvailable = false;
             String buyLink = "";
+            String webReaderLink = "";
 
             baseJsonResponse = new JSONObject(bookJSON);
 
@@ -314,6 +315,13 @@ public final class QueryUtils {
                     isEbook = false;
                 }
 
+                // Get buyLink url if the key exists
+                if (currSaleInfo.has("buyLink")) {
+                    buyLink = currSaleInfo.getString("buyLink");
+                } else {
+                    buyLink = "";
+                }
+
                 // Get indicators if ePub versions available
                 if (currAccessInfo.has("epub")) {
                     isEpub = currAccessInfo.getJSONObject("epub");
@@ -334,10 +342,17 @@ public final class QueryUtils {
                     }
                 }
 
+                // Get web reader url if the key exists
+                if (currSaleInfo.has("webReaderLink")) {
+                    webReaderLink = currSaleInfo.getString("webReaderLink");
+                } else {
+                    webReaderLink = "";
+                }
+
                 // Create a new {@link Book} object from the JSON response.
                 Book book = new Book(title, authorsList, publisher, publishedDate, description,
                         pageCount, printType, categoryList, averageRating, thumbnail, price, currencyCode,
-                        isEbook, isEpubAvailable, isPdfAvailable, buyLink);
+                        isEbook, isEpubAvailable, isPdfAvailable, buyLink, webReaderLink);
 
                 // Add the new {@link Book} to the list of books.
                 books.add(book);

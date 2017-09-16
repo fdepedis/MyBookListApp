@@ -89,12 +89,17 @@ public class Book implements Serializable {
     private String mBuyLink;
 
     /**
+     * Link where reader the book
+     */
+    private String mWebReaderLink;
+
+    /**
      * Constructs a new {@link Book} object.
      */
     public Book(String mTitle, String mAuthor, String mPublisher, String mPublishedDate,
                 String mDescription, int mPageCount, String mPrintType, String mCategory,
                 double mAverageRating, String mThumbnail, double mAmount, String mCurrencyCode,
-                boolean isEbook, boolean isEpub, boolean isPdf, String mBuyLink) {
+                boolean isEbook, boolean isEpub, boolean isPdf, String mBuyLink, String mWebReaderLink) {
 
         this.mTitle = mTitle;
         this.mAuthor = mAuthor;
@@ -112,6 +117,7 @@ public class Book implements Serializable {
         this.isEpub = isEpub;
         this.isPdf = isPdf;
         this.mBuyLink = mBuyLink;
+        this.mWebReaderLink = mWebReaderLink;
     }
 
     /**
@@ -227,6 +233,13 @@ public class Book implements Serializable {
     }
 
     /**
+     * Returns the link to reader the book.
+     */
+    public String getmWebReaderLink() {
+        return mWebReaderLink;
+    }
+
+    /**
      * Set the title of the book.
      */
     public void setmTitle(String mTitle) {
@@ -336,5 +349,12 @@ public class Book implements Serializable {
      */
     public void setmBuyLink(String mBuyLink) {
         this.mBuyLink = mBuyLink;
+    }
+
+    /**
+     * Set the link to reader the book.
+     */
+    public void setmWebReaderLink(String mWebReaderLink) {
+        this.mWebReaderLink = mWebReaderLink;
     }
 }
