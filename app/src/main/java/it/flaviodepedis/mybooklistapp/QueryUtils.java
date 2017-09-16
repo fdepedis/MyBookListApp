@@ -189,7 +189,7 @@ public final class QueryUtils {
             boolean isEbook = false;
             boolean isEpub = false;
             boolean isPdf = false;
-            String mBuyLink = "";
+            String buyLink = "";
 
             baseJsonResponse = new JSONObject(bookJSON);
 
@@ -268,7 +268,7 @@ public final class QueryUtils {
                 // Create a new {@link Book} object from the JSON response.
                 Book book = new Book(title, authorsList, publisher, publishedDate, description,
                         pageCount, printType, category, averageRating, thumbnail, price, currencyCode,
-                        isEbook, isEpub, isPdf, mBuyLink);
+                        isEbook, isEpub, isPdf, buyLink);
 
                 // Add the new {@link Book} to the list of books.
                 books.add(book);
