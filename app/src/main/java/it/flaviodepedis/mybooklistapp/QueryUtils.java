@@ -178,23 +178,23 @@ public final class QueryUtils {
             JSONObject isEpub;
             JSONObject isPdf;
 
-            String title = "";
+            String title;
             String authorsList = "";
-            String publisher = "";
-            String publishedDate = "";
-            String description = "";
-            int pageCount = 0;
-            String printType = "";
-            String categoryList = "";
-            double averageRating = 0.0;
-            String thumbnail = "";
-            double price = 0.0;
-            String currencyCode = "";
-            boolean isEbook = false;
+            String publisher;
+            String publishedDate;
+            String description;
+            int pageCount;
+            String printType;
+            String categoryList;
+            double averageRating;
+            String thumbnail;
+            double price;
+            String currencyCode;
+            boolean isEbook;
             boolean isEpubAvailable = false;
             boolean isPdfAvailable = false;
-            String buyLink = "";
-            String webReaderLink = "";
+            String buyLink;
+            String webReaderLink;
 
             baseJsonResponse = new JSONObject(bookJSON);
 
