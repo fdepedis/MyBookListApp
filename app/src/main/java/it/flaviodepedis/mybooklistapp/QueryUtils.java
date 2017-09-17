@@ -325,7 +325,7 @@ public final class QueryUtils {
                 // Get indicators if ePub versions available
                 if (currAccessInfo.has("epub")) {
                     isEpub = currAccessInfo.getJSONObject("epub");
-                    if(isEpub.has("isAvailable")){
+                    if (isEpub.has("isAvailable")) {
                         isEpubAvailable = isEpub.getBoolean("isAvailable");
                     } else {
                         isEpubAvailable = false;
@@ -335,7 +335,7 @@ public final class QueryUtils {
                 // Get indicators if PDF versions available
                 if (currAccessInfo.has("pdf")) {
                     isPdf = currAccessInfo.getJSONObject("pdf");
-                    if(isPdf.has("isAvailable")){
+                    if (isPdf.has("isAvailable")) {
                         isPdfAvailable = isPdf.getBoolean("isAvailable");
                     } else {
                         isPdfAvailable = false;
@@ -359,12 +359,7 @@ public final class QueryUtils {
 
                 Log.i(LOG_TAG, "Log - extractFeatureFromJson() method");
             }
-        } catch (
-                JSONException e)
-        {
-            // If an error is thrown when executing any of the above statements in the "try" block,
-            // catch the exception here, so the app doesn't crash. Print a log message
-            // with the message from the exception.
+        } catch (JSONException e) {
             Log.e(LOG_TAG, "Problem parsing the book JSON results", e);
         }
 
