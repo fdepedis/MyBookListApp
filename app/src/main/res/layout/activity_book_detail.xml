@@ -80,6 +80,7 @@
             android:padding="@dimen/padding">
 
             <TextView
+                android:id="@+id/tv_detail_buy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_button"
@@ -87,11 +88,12 @@
                 android:background="@color/colorPriceBackground"
                 android:gravity="center"
                 android:padding="@dimen/padding"
-                android:text="Buy"
+                android:text="@string/buy"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/colorPriceText" />
 
             <TextView
+                android:id="@+id/tv_detail_preview"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_button"
@@ -99,9 +101,65 @@
                 android:background="@color/colorPriceBackground"
                 android:gravity="center"
                 android:padding="@dimen/padding"
-                android:text="Preview"
+                android:text="@string/preview"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/colorPriceText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/colorDetailActivity"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_detail_desc_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding"
+                    android:text="@string/description"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@color/colorDescDetailActivity"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/tv_detail_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="20"
+                    android:padding="@dimen/padding"
+                    android:text="xxx"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@color/colorDescDetailActivity" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_detail_book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding"
+                    android:text="@string/publisher"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@color/secondary_text"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

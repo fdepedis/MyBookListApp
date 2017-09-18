@@ -24,6 +24,10 @@ public class BookDetailActivity extends AppCompatActivity {
     @BindView(R.id.img_detail_icon) ImageView imgIconBook;
     @BindView(R.id.tv_detail_price) TextView tvPriceBook;
     @BindView(R.id.rating_bar_detail) RatingBar ratingBar;
+    @BindView(R.id.tv_detail_preview) TextView tvPreviewBook;
+    @BindView(R.id.tv_detail_buy) TextView tvBuyBook;
+    @BindView(R.id.tv_detail_desc) TextView tvDescBook;
+    @BindView(R.id.tv_detail_book) TextView tvDetailsBook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +59,21 @@ public class BookDetailActivity extends AppCompatActivity {
             ratingBar.setRating((float) currentBook.getmAverageRating());
             //set price of current book
             tvPriceBook.setText(currentBook.getmAmount() + " " + currentBook.getmCurrencyCode());
-            //set title of current book
+            //set description of current book
+            tvDescBook.setText(currentBook.getmDescription());
 
+            // set the details of the book
+            StringBuilder sbDetailsBook = new StringBuilder();
+            sbDetailsBook.append(getResources().getString(R.string.publisher) + " " + currentBook.getmPublisher() + "\n\n");
+            sbDetailsBook.append(getResources().getString(R.string.published_date) + " " + currentBook.getmPublishedDate() + "\n\n");
+            sbDetailsBook.append(getResources().getString(R.string.page_count) + " " + currentBook.getmPageCount() + "\n\n");
+            sbDetailsBook.append(getResources().getString(R.string.print_type) + " " + currentBook.getmPrintType() + "\n\n");
+            sbDetailsBook.append(getResources().getString(R.string.category) + " " + currentBook.getmCategory() + "\n\n");
+            sbDetailsBook.append(getResources().getString(R.string.isEbook) + " " + currentBook.getIsEbook() + "\n\n");
+            sbDetailsBook.append(getResources().getString(R.string.epub) + " " + currentBook.getIsEpub() + "\n\n");
+            sbDetailsBook.append(getResources().getString(R.string.pdf) + " " + currentBook.getIsPdf() + "\n\n");
+
+            tvDetailsBook.setText(sbDetailsBook.toString());
         }
     }
 

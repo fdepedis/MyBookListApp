@@ -207,21 +207,21 @@ public class Book implements Serializable {
     /**
      * Returns the eBook format type of the book.
      */
-    public boolean isEbook() {
+    public boolean getIsEbook() {
         return isEbook;
     }
 
     /**
      * Returns the ePub format type of the book.
      */
-    public boolean isEpub() {
+    public boolean getIsEpub() {
         return isEpub;
     }
 
     /**
      * Returns the PDF format type of the book.
      */
-    public boolean isPdf() {
+    public boolean getIsPdf() {
         return isPdf;
     }
 

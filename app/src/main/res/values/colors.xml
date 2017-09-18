@@ -12,6 +12,12 @@
     <!-- Color for activity main -->
     <color name="colorMainActivity">#FFEEECD1</color>
 
+    <!-- Color for activity detail -->
+    <color name="colorDetailActivity">#c6b7a6</color>
+
+    <!-- Color for description in detail activity-->
+    <color name="colorDescDetailActivity">#705c47</color>
+
     <!-- Color for text in Splash Screen activity-->
     <color name="colorTextSplashScreen">#fdfdfe</color>
 

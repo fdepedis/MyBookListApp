@@ -17,6 +17,39 @@
     <!-- Text to Button Search -->
     <string name="btnSearch">Search</string>
 
+    <!-- Text to buy text view -->
+    <string name="buy">Buy</string>
+
+    <!-- Text to preview text view -->
+    <string name="preview">Preview</string>
+
+    <!-- Text to description text view -->
+    <string name="description">Description</string>
+
+    <!-- Text to description text view -->
+    <string name="publisher">Publisher - </string>
+
+    <!-- Text to description text view -->
+    <string name="published_date">Date - </string>
+
+    <!-- Text to description text view -->
+    <string name="page_count">Page Count - </string>
+
+    <!-- Text to description text view -->
+    <string name="print_type">Print Type - </string>
+
+    <!-- Text to description text view -->
+    <string name="category">Category - </string>
+
+    <!-- Text to description text view -->
+    <string name="isEbook">Ebook - </string>
+
+    <!-- Text to description text view -->
+    <string name="epub">ePub - </string>
+
+    <!-- Text to description text view -->
+    <string name="pdf">PDF - </string>
+
     <!-- Text for Hint EditText Search -->
     <string name="hint_context_book">Insert context book</string>
 
