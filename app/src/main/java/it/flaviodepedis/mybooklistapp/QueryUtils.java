@@ -3,15 +3,19 @@ package it.flaviodepedis.mybooklistapp;
 /**
  * Created by flavio.depedis on 15/09/2017.
  */
+
 import android.content.Context;
 import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
+
 import android.text.TextUtils;
 
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -331,6 +335,8 @@ public final class QueryUtils {
                     } else {
                         isEpubAvailable = false;
                     }
+                } else {
+                    isEpubAvailable = false;
                 }
 
                 // Get indicators if PDF versions available
@@ -341,6 +347,8 @@ public final class QueryUtils {
                     } else {
                         isPdfAvailable = false;
                     }
+                } else {
+                    isPdfAvailable = false;
                 }
 
                 // Get web reader url if the key exists
