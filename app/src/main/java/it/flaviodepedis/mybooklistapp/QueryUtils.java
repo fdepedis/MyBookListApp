@@ -8,6 +8,9 @@ import android.util.Log;
 import org.json.JSONArray;
 import org.json.JSONException;
 import android.text.TextUtils;
+
+import com.squareup.picasso.Picasso;
+
 import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.IOException;
