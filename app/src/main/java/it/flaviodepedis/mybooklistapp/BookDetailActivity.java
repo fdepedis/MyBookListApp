@@ -37,6 +37,7 @@ public class BookDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         String imageIcon;
+        String isAvailable = "";
 
         /** Get Intent Extras */
         if (getIntent().getExtras() != null) {
@@ -57,22 +58,48 @@ public class BookDetailActivity extends AppCompatActivity {
             }
             //set rating of current book
             ratingBar.setRating((float) currentBook.getmAverageRating());
+
             //set price of current book
-            tvPriceBook.setText(currentBook.getmAmount() + " " + currentBook.getmCurrencyCode());
+            StringBuilder sbPriceBook = new StringBuilder();
+            sbPriceBook.append(currentBook.getmAmount() + " " + currentBook.getmCurrencyCode());
+            tvPriceBook.setText(sbPriceBook.toString());
+
             //set description of current book
             tvDescBook.setText(currentBook.getmDescription());
 
-            // set the details of the book
+            // Create a StringBuilder to concatenate information about details of book
             StringBuilder sbDetailsBook = new StringBuilder();
             sbDetailsBook.append(getResources().getString(R.string.publisher) + " " + currentBook.getmPublisher() + "\n\n");
             sbDetailsBook.append(getResources().getString(R.string.published_date) + " " + currentBook.getmPublishedDate() + "\n\n");
             sbDetailsBook.append(getResources().getString(R.string.page_count) + " " + currentBook.getmPageCount() + "\n\n");
             sbDetailsBook.append(getResources().getString(R.string.print_type) + " " + currentBook.getmPrintType() + "\n\n");
             sbDetailsBook.append(getResources().getString(R.string.category) + " " + currentBook.getmCategory() + "\n\n");
-            sbDetailsBook.append(getResources().getString(R.string.isEbook) + " " + currentBook.getIsEbook() + "\n\n");
-            sbDetailsBook.append(getResources().getString(R.string.epub) + " " + currentBook.getIsEpub() + "\n\n");
-            sbDetailsBook.append(getResources().getString(R.string.pdf) + " " + currentBook.getIsPdf() + "\n\n");
 
+            // verify if eBook is available
+            if(currentBook.getIsEbook()){
+                isAvailable = getResources().getString(R.string.available);
+            } else {
+                isAvailable = getResources().getString(R.string.no_available);
+            }
+            sbDetailsBook.append(getResources().getString(R.string.isEbook) + " " + isAvailable + "\n\n");
+
+            // verify if ePub is available
+            if(currentBook.getIsEpub()){
+                isAvailable = getResources().getString(R.string.available);
+            } else {
+                isAvailable = getResources().getString(R.string.no_available);
+            }
+            sbDetailsBook.append(getResources().getString(R.string.epub) + " " + isAvailable + "\n\n");
+
+            // verify if PDF is available
+            if(currentBook.getIsPdf()){
+                isAvailable = getResources().getString(R.string.available);
+            } else {
+                isAvailable = getResources().getString(R.string.no_available);
+            }
+            sbDetailsBook.append(getResources().getString(R.string.pdf) + " " + isAvailable + "\n\n");
+
+            // set all the details of book in a TextView
             tvDetailsBook.setText(sbDetailsBook.toString());
         }
     }

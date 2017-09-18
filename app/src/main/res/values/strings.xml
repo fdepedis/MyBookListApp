@@ -89,4 +89,10 @@
     <!-- Text to display no web reader link information -->
     <string name="no_webreaderlink">No web reader link available</string>
 
+    <!-- Text to display no available information -->
+    <string name="no_available">No available</string>
+
+    <!-- Text to display available information -->
+    <string name="available">Available</string>
+
 </resources>
