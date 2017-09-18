@@ -27,6 +27,9 @@
     <!-- Color price background -->
     <color name="colorPriceBackground">#3f556c</color>
 
+    <!-- Color text price -->
+    <color name="colorPriceText">#f7fafb</color>
+
     <!-- First Color gradient splash screen background -->
     <color name="endColorGradient">#fc5c7d</color>
 

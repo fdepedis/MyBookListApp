@@ -43,7 +43,6 @@
                 android:layout_height="@dimen/list_item_height"
                 android:layout_alignLeft="@id/tv_title"
                 android:layout_below="@id/tv_title"
-                android:background="@color/colorBackgroundListItem"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -98,7 +97,7 @@
                         android:gravity="center"
                         android:text="price"
                         android:textAppearance="?android:textAppearanceMedium"
-                        android:textColor="@color/colorMainActivity"
+                        android:textColor="@color/colorPriceText"
                         android:textStyle="bold" />
 
                 </RelativeLayout>
