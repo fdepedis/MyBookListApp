@@ -14,9 +14,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/label_main"
-            android:configChanges="orientation|screenSize|keyboardHidden" >
-        </activity>
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/label_main"></activity>
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
@@ -36,7 +35,8 @@
                 android:value=".MainActivity" />
         </activity>
         <activity android:name=".BookAdapter" />
-        <activity android:name=".BookLoader"></activity>
+        <activity android:name=".BookLoader" />
+        <activity android:name=".BookDetailActivity"></activity>
     </application>
 
 </manifest>
