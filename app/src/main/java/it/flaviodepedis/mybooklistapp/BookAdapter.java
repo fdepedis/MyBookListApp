@@ -14,6 +14,9 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by flavio.depedis on 15/09/2017.
  */
@@ -32,73 +35,83 @@ public class BookAdapter extends ArrayAdapter<Book> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        String imageIcon = "";
-        String author = "";
-        double price = 0.0;
-        String currencyCode = "";
-        float averageRating = 0;
-        String publishedDate = "";
+        String imageIcon;
+        String author;
+        double price;
+        String currencyCode;
+        float averageRating;
+        String publishedDate;
 
         // Check if there is an existing list item view (called convertView) that we can reuse,
-        // otherwise, if convertView is null, then inflate a new list item layout.
+        // otherwise, if convertView is not null, then inflate a new list item layout.
         View listItemView = convertView;
-        if (listItemView == null) {
+        ViewHolder holder;
+        if (listItemView != null) {
+            holder = (ViewHolder) listItemView.getTag();
+        } else {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.activity_book_list_item, parent, false);
+            holder = new ViewHolder(listItemView);
+            listItemView.setTag(holder);
         }
 
         // Find the book at the given position in the list of books
         Book currentBook = getItem(position);
 
         // Set title of the book
-        TextView tvTitle = listItemView.findViewById(R.id.tv_title);
-        tvTitle.setText(currentBook.getmTitle());
+        holder.tvTitle.setText(currentBook.getmTitle());
 
         // Set authors of the book if available
-        TextView tvAuthors = listItemView.findViewById(R.id.tv_author);
         author = currentBook.getmAuthor();
         if(!author.isEmpty()){
-            tvAuthors.setText(author);
+            holder.tvAuthors.setText(author);
         } else {
-            tvAuthors.setText(R.string.no_author);
+            holder.tvAuthors.setText(R.string.no_author);
         }
 
         // Set image icon of the book if available.
         // Use Picasso library to load url thumbnail
-        ImageView imgIconBook = listItemView.findViewById(R.id.book_icon);
         imageIcon = currentBook.getmThumbnail();
         if (imageIcon != null && imageIcon.length() > 0) {
-            Picasso.with(getContext()).load(currentBook.getmThumbnail()).into(imgIconBook);
+            Picasso.with(getContext()).load(currentBook.getmThumbnail()).into(holder.imgIconBook);
         } else {
-            Picasso.with(getContext()).load(R.drawable.image_not_found).into(imgIconBook);
+            Picasso.with(getContext()).load(R.drawable.image_not_found).into(holder.imgIconBook);
         }
 
         // Set the published date if available
-        TextView tvPublishedDate = listItemView.findViewById(R.id.tv_publisher_date);
         publishedDate = currentBook.getmPublishedDate();
         if(!publishedDate.isEmpty()){
-            tvPublishedDate.setText(publishedDate);
+            holder.tvPublishedDate.setText(publishedDate);
         } else {
-            tvPublishedDate.setText(R.string.no_date);
+            holder.tvPublishedDate.setText(R.string.no_date);
         }
 
         // Set the price of the book if available
-        TextView tvPrice = listItemView.findViewById(R.id.tv_price);
         price = currentBook.getmAmount();
         currencyCode = currentBook.getmCurrencyCode();
         if (price != 0.0) {
-            tvPrice.setText(String.valueOf(price) + " " + currencyCode);
+            holder.tvPrice.setText(String.valueOf(price) + " " + currencyCode);
         } else {
-            tvPrice.setText(R.string.no_price);
+            holder.tvPrice.setText(R.string.no_price);
         }
 
         // Set the average rating of the book
-        RatingBar ratingBar = listItemView.findViewById(R.id.rating_bar);
         averageRating = (float) currentBook.getmAverageRating();
-        ratingBar.setRating(averageRating);
-
-
+        holder.ratingBar.setRating(averageRating);
 
         return listItemView;
+    }
+
+    static class ViewHolder {
+        @BindView(R.id.tv_title) TextView tvTitle;
+        @BindView(R.id.tv_author) TextView tvAuthors;
+        @BindView(R.id.book_icon) ImageView imgIconBook;
+        @BindView(R.id.tv_publisher_date) TextView tvPublishedDate;
+        @BindView(R.id.tv_price) TextView tvPrice;
+        @BindView(R.id.rating_bar) RatingBar ratingBar;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }
