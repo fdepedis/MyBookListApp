@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnSearch = (Button) findViewById(R.id.btnSearch);
+        btnSearch = (Button) findViewById(R.id.search);
         etSearch = (EditText) findViewById(R.id.etSearchBook);
 
         btnSearch.setOnClickListener(new View.OnClickListener() {

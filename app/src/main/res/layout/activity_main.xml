@@ -1,38 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorMainActivity"
-    android:orientation="vertical"
     tools:context="it.flaviodepedis.mybooklistapp.MainActivity">
 
-    <ImageView
-        android:id="@+id/splash_image_view"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_book_pro_new" />
+        android:background="@color/colorMainActivity"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/etSearchBook"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="45dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="65dp"
-        android:hint="@string/hint_context_book"
-        android:inputType="textCapWords" />
+        <ImageView
+            android:id="@+id/splash_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_book_pro_new" />
 
-    <Button
-        android:id="@+id/btnSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/btnSearch" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorMainActivity"
+            android:orientation="horizontal">
 
-</LinearLayout>
+            <EditText
+                android:id="@+id/etSearchBook"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="55dp"
+                android:hint="@string/hint_context_book"
+                android:inputType="textCapWords" />
+
+            <Button
+                android:id="@+id/search"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="55dp"
+                android:layout_toEndOf="@id/etSearchBook"
+                android:background="@drawable/ic_shortcut_search" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>
