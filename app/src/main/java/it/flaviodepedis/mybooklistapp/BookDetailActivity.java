@@ -54,7 +54,7 @@ public class BookDetailActivity extends AppCompatActivity {
             //set rating of current book
             ratingBar.setRating((float) currentBook.getmAverageRating());
             //set price of current book
-            tvPriceBook.setText(currentBook.getmAmount());
+            tvPriceBook.setText(currentBook.getmAmount() + " " + currentBook.getmCurrencyCode());
             //set title of current book
 
         }

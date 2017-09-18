@@ -1,76 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorMainActivity"
-    android:fillViewport="true"
-    tools:context="it.flaviodepedis.mybooklistapp.BookDetailActivity">
+    android:background="@color/colorMainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/padding">
-
-        <ImageView
-            android:id="@+id/img_detail_icon"
-            android:layout_width="@dimen/icon_detail_width"
-            android:layout_height="@dimen/icon_detail_height"
-            android:scaleType="centerCrop" />
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorMainActivity"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:padding="@dimen/padding">
 
-            <TextView
-                android:id="@+id/tv_detail_title"
+            <ImageView
+                android:id="@+id/img_detail_icon"
+                android:layout_width="@dimen/icon_detail_width"
+                android:layout_height="@dimen/icon_detail_height"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="2"
+                android:background="@color/colorMainActivity"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_detail_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:padding="@dimen/padding"
+                    android:text="title"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@color/primary_text"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_detail_authors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:padding="@dimen/padding"
+                    android:text="authors"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@color/secondary_text" />
+
+                <RatingBar
+                    android:id="@+id/rating_bar_detail"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="@dimen/list_item_width"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:padding="@dimen/padding"
+                    android:rating="4.5"
+                    android:stepSize="0.5" />
+
+                <TextView
+                    android:id="@+id/tv_detail_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding"
+                    android:text="price"
+                    android:textAppearance="?android:textAppearanceSmall"
+                    android:textColor="@color/secondary_text" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/padding">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_button"
+                android:layout_weight="1"
+                android:background="@color/colorPriceBackground"
+                android:gravity="center"
                 android:padding="@dimen/padding"
-                android:text="title"
+                android:text="Buy"
                 android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@color/primary_text"
-                android:textStyle="bold" />
+                android:textColor="@color/colorPriceText" />
 
             <TextView
-                android:id="@+id/tv_detail_authors"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:maxLines="2"
+                android:layout_margin="@dimen/margin_button"
+                android:layout_weight="1"
+                android:background="@color/colorPriceBackground"
+                android:gravity="center"
                 android:padding="@dimen/padding"
-                android:text="authors"
-                android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="@color/secondary_text" />
-
-            <RatingBar
-                android:id="@+id/rating_bar_detail"
-                style="?android:attr/ratingBarStyleSmall"
-                android:layout_width="@dimen/list_item_width"
-                android:layout_height="wrap_content"
-                android:numStars="5"
-                android:paddingStart="@dimen/padding_start"
-                android:paddingBottom="@dimen/padding_bottom"
-                android:rating="4.5"
-                android:stepSize="0.5" />
-
-            <TextView
-                android:id="@+id/tv_detail_price"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/padding_start"
-                android:paddingBottom="@dimen/padding_bottom"
-                android:text="price"
-                android:textAppearance="?android:textAppearanceSmall"
-                android:textColor="@color/secondary_text" />
+                android:text="Preview"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/colorPriceText" />
 
         </LinearLayout>
 
     </LinearLayout>
+
 
 </ScrollView>

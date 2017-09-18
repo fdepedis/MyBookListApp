@@ -52,6 +52,9 @@
     <!-- Margin price -->
     <dimen name="margin_price">16dp</dimen>
 
+    <!-- Margin button -->
+    <dimen name="margin_button">8dp</dimen>
+
     <!-- TextView Pricing size -->
     <dimen name="pricing_size">100dp</dimen>
 </resources>
