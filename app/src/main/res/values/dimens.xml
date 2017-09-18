@@ -40,11 +40,8 @@
     <!-- Padding price size -->
     <dimen name="padding_price">6dp</dimen>
 
-    <!-- Margin price size -->
-    <dimen name="margin_price">8dp</dimen>
-
-    <!-- End margin in list item -->
-    <dimen name="margin_end">16dp</dimen>
+    <!-- Margin price -->
+    <dimen name="margin_price">16dp</dimen>
 
     <!-- TextView Pricing size -->
     <dimen name="pricing_size">100dp</dimen>
