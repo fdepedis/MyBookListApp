@@ -17,10 +17,19 @@
     <dimen name="list_image_height">140dp</dimen>
 
     <!-- Width of each list item -->
-    <dimen name="list_item_width">100dp</dimen>
+    <dimen name="list_item_width">90dp</dimen>
 
     <!-- Height of each list item -->
     <dimen name="list_item_height">140dp</dimen>
+
+    <!-- Width of each list item -->
+    <dimen name="icon_detail_width">120dp</dimen>
+
+    <!-- Height of each list item -->
+    <dimen name="icon_detail_height">160dp</dimen>
+
+    <!-- Width of rating in list item -->
+    <dimen name="rating_width">105dp</dimen>
 
     <!-- Width for TextView title -->
     <dimen name="title_item_width">270dp</dimen>
