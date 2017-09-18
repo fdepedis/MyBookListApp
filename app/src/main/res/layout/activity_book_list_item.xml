@@ -27,14 +27,12 @@
 
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_width="@dimen/title_item_width"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/book_icon"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:paddingBottom="@dimen/padding"
-                android:paddingStart="@dimen/start_padding"
-                android:paddingTop="@dimen/padding"
+                android:padding="@dimen/padding"
                 android:text="title"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/primary_text"
@@ -51,14 +49,13 @@
                 <RelativeLayout
                     android:id="@+id/text_container"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingStart="@dimen/start_padding">
+                    android:layout_height="match_parent" >
 
                     <TextView
                         android:id="@+id/tv_author"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="@dimen/padding"
+                        android:padding="@dimen/padding"
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:text="author"
@@ -72,7 +69,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_author"
                         android:numStars="5"
-                        android:paddingBottom="@dimen/padding"
+                        android:paddingBottom="@dimen/padding_bottom"
+                        android:paddingStart="@dimen/padding_start"
                         android:rating="4"
                         android:stepSize="0.5" />
 
@@ -81,7 +79,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/rating_bar"
-                        android:paddingBottom="@dimen/padding"
+                        android:paddingBottom="@dimen/padding_bottom"
+                        android:paddingStart="@dimen/padding_start"
                         android:text="publisher date"
                         android:textAppearance="?android:textAppearanceSmall"
                         android:textColor="@color/secondary_text" />
@@ -91,11 +90,11 @@
                         android:layout_width="@dimen/pricing_size"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:layout_below="@id/rating_bar"
-                        android:layout_marginEnd="@dimen/end_margin"
+                        android:layout_below="@id/tv_author"
+                        android:layout_marginEnd="@dimen/margin_end"
+                        android:padding="@dimen/padding_price"
                         android:background="@color/colorPriceBackground"
                         android:gravity="center"
-                        android:padding="@dimen/padding"
                         android:text="price"
                         android:textAppearance="?android:textAppearanceMedium"
                         android:textColor="@color/colorMainActivity"

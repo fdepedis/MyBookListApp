@@ -1,9 +1,11 @@
 package it.flaviodepedis.mybooklistapp;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

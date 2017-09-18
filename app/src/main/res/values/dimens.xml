@@ -25,23 +25,26 @@
     <!-- Width for TextView title -->
     <dimen name="title_item_width">270dp</dimen>
 
-    <!-- Start padding in list item -->
-    <dimen name="start_padding">16dp</dimen>
-
-    <!-- End padding in list item -->
-    <dimen name="end_padding">16dp</dimen>
-
-    <!-- End margin in list item -->
-    <dimen name="end_margin">16dp</dimen>
-
     <!-- Height of each TextView in the list item -->
     <dimen name="text_view_list_item_height">44dp</dimen>
 
-    <!-- Padding Bottom size -->
+    <!-- Padding Title size -->
     <dimen name="padding">8dp</dimen>
+
+    <!-- Padding Bottom size -->
+    <dimen name="padding_bottom">8dp</dimen>
+
+    <!-- Padding Start size -->
+    <dimen name="padding_start">8dp</dimen>
+
+    <!-- Padding price size -->
+    <dimen name="padding_price">6dp</dimen>
 
     <!-- Margin price size -->
     <dimen name="margin_price">8dp</dimen>
+
+    <!-- End margin in list item -->
+    <dimen name="margin_end">16dp</dimen>
 
     <!-- TextView Pricing size -->
     <dimen name="pricing_size">100dp</dimen>

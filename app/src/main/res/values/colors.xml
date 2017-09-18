@@ -10,7 +10,10 @@
     <color name="colorAccent">#10CAC9</color>
 
     <!-- Color for activity main -->
-    <color name="colorMainActivity">#fdfdfe</color>
+    <color name="colorMainActivity">#FFEEECD1</color>
+
+    <!-- Color for text in Splash Screen activity-->
+    <color name="colorTextSplashScreen">#fdfdfe</color>
 
     <!-- Primary color for the background list item -->
     <color name="colorBackgroundListItem">#f0ece2</color>
@@ -23,4 +26,11 @@
 
     <!-- Color price background -->
     <color name="colorPriceBackground">#3f556c</color>
+
+    <!-- First Color gradient splash screen background -->
+    <color name="endColorGradient">#fc5c7d</color>
+
+    <!-- Second Color gradient splash screen background -->
+    <color name="stratColorGradient">#4b134f</color>
+
 </resources>
