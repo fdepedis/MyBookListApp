@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/colorMainActivity"
+    android:orientation="vertical"
     tools:context="it.flaviodepedis.mybooklistapp.MainActivity">
 
     <ImageView
@@ -13,20 +13,20 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
-        android:src="@drawable/ic_book_pro_new"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_book_pro_new" />
 
     <EditText
         android:id="@+id/etSearchBook"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="45dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="65dp"
         android:hint="@string/hint_context_book"
-        android:inputType="textCapWords"
-        android:paddingStart="16dp"
-        android:paddingEnd="200dp" />
+        android:inputType="textCapWords" />
 
     <Button
         android:id="@+id/btnSearch"

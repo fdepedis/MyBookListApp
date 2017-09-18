@@ -5,6 +5,9 @@
     <!-- Text to display application label in splash screen -->
     <string name="app_name_splash">Book Listing</string>
 
+    <!-- Text to display application label in splash screen -->
+    <string name="legal_property">FDP development - rev.1.0</string>
+
     <!-- Text to display book list label in activity -->
     <string name="label_booklist">Book List</string>
 
@@ -15,7 +18,7 @@
     <string name="label_main">Book Search</string>
 
     <!-- Text to Button Search -->
-    <string name="btnSearch">Search</string>
+    <string name="btnSearch">Search Book</string>
 
     <!-- Text to buy text view -->
     <string name="buy">Buy</string>
