@@ -36,7 +36,14 @@
         </activity>
         <activity android:name=".BookAdapter" />
         <activity android:name=".BookLoader" />
-        <activity android:name=".BookDetailActivity"></activity>
+        <activity
+            android:name=".BookDetailActivity"
+            android:label="@string/label_booklist_detail"
+            android:parentActivityName=".BookActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".BookActivity" />
+        </activity>
     </application>
 
 </manifest>

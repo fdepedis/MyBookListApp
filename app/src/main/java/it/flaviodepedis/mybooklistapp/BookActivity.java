@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.app.LoaderManager;
@@ -95,6 +96,22 @@ public class BookActivity extends AppCompatActivity
             // Update empty state with no connection error message
             mEmptyStateTextView.setText(R.string.no_internet_connection);
         }
+
+        bookListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                // Find the current book that was clicked on
+                Book currentBook = mAdapter.getItem(position);
+
+                // Create a new intent to view the book details and pass with intent
+                // the currentBook object
+                Intent intent = new Intent(BookActivity.this, BookDetailActivity.class);
+                intent.putExtra("currentBook", currentBook);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -123,7 +140,7 @@ public class BookActivity extends AppCompatActivity
         View loadingIndicator = findViewById(R.id.loading_indicator);
         loadingIndicator.setVisibility(View.GONE);
 
-        // Set empty state text to display "No meteo found."
+        // Set empty state text to display "No book found."
         mEmptyStateTextView.setText(R.string.no_book);
 
         // Clear the adapter of previous book data

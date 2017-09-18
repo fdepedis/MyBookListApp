@@ -3,16 +3,12 @@ package it.flaviodepedis.mybooklistapp;
 /**
  * Created by flavio.depedis on 15/09/2017.
  */
-
+import android.content.Context;
 import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
-
 import android.text.TextUtils;
-
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,11 +19,6 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-
-
-/**
- * Created by flavio.depedis on 15/09/2017.
- */
 
 /**
  * Helper methods related to requesting and receiving book data from OpenWeatherMap.
@@ -40,6 +31,11 @@ public final class QueryUtils {
     private static final String LOG_TAG = QueryUtils.class.getSimpleName();
 
     /**
+     * Context of the caller activity
+     */
+    private static Context mContext;
+
+    /**
      * Create a private constructor because no one should ever create a {@link QueryUtils} object.
      * This class is only meant to hold static variables and methods, which can be accessed
      * directly from the class name QueryUtils (and an object instance of QueryUtils is not needed).
@@ -50,7 +46,9 @@ public final class QueryUtils {
     /**
      * Query the Google Book API dataset and return a list of {@link Book} objects.
      */
-    public static List<Book> fetchBookData(String requestUrl) {
+    public static List<Book> fetchBookData(String requestUrl, Context context) {
+
+        mContext = context;
 
         Log.i(LOG_TAG, "Log - fetchBookData() method");
 
@@ -188,7 +186,7 @@ public final class QueryUtils {
             String categoryList;
             double averageRating;
             String thumbnail;
-            double price;
+            String price;
             String currencyCode;
             boolean isEbook;
             boolean isEpubAvailable = false;
@@ -217,7 +215,7 @@ public final class QueryUtils {
                 if (currVolumeInfo.has("title")) {
                     title = currVolumeInfo.getString("title");
                 } else {
-                    title = "";
+                    title = mContext.getResources().getString(R.string.no_title);
                 }
 
                 // Get List of Author if there are more than one, if exist
@@ -230,10 +228,10 @@ public final class QueryUtils {
                     } else if (authorsArray.length() == 1) {
                         authorsList = authorsArray.getString(0);
                     } else if (authorsArray.length() == 0) {
-                        authorsList = "";
+                        authorsList = mContext.getResources().getString(R.string.no_author);
                     }
                 } else {
-                    authorsList = "";
+                    authorsList = mContext.getResources().getString(R.string.no_author);
                 }
 
                 // Get value for average rating if the key exists
@@ -251,21 +249,21 @@ public final class QueryUtils {
                         publishedDate = publishedDate.substring(0, 10);
                     }
                 } else {
-                    publishedDate = "";
+                    publishedDate = mContext.getResources().getString(R.string.no_date);
                 }
 
                 // Get publisher of the book if the key exists
                 if (currVolumeInfo.has("publisher")) {
                     publisher = currVolumeInfo.getString("publisher");
                 } else {
-                    publisher = "";
+                    publisher = mContext.getResources().getString(R.string.no_publisher);
                 }
 
                 // Get description of the book if the key exists
                 if (currVolumeInfo.has("description")) {
                     description = currVolumeInfo.getString("description");
                 } else {
-                    description = "";
+                    description = mContext.getResources().getString(R.string.no_description);
                 }
 
                 // Get the thumbnail of the book if the key exists
@@ -287,7 +285,7 @@ public final class QueryUtils {
                 if (currVolumeInfo.has("printType")) {
                     printType = currVolumeInfo.getString("printType");
                 } else {
-                    printType = "";
+                    printType = mContext.getResources().getString(R.string.no_print_type);
                 }
 
                 // Get first category if there are more than one, if exist
@@ -295,16 +293,16 @@ public final class QueryUtils {
                     categoryArray = currVolumeInfo.getJSONArray("categories");
                     categoryList = categoryArray.getString(0);
                 } else {
-                    categoryList = "";
+                    categoryList = mContext.getResources().getString(R.string.no_category);
                 }
 
                 // Get price and currency code of the book if the key exists
                 if (currSaleInfo.has("retailPrice")) {
                     retailPrice = currSaleInfo.getJSONObject("retailPrice");
-                    price = retailPrice.getDouble("amount");
+                    price = String.valueOf(retailPrice.getDouble("amount"));
                     currencyCode = retailPrice.getString("currencyCode");
                 } else {
-                    price = 0.0;
+                    price = mContext.getResources().getString(R.string.no_price);
                     currencyCode = "";
                 }
 
@@ -319,7 +317,7 @@ public final class QueryUtils {
                 if (currSaleInfo.has("buyLink")) {
                     buyLink = currSaleInfo.getString("buyLink");
                 } else {
-                    buyLink = "";
+                    buyLink = mContext.getResources().getString(R.string.no_buylink);
                 }
 
                 // Get indicators if ePub versions available
@@ -346,7 +344,7 @@ public final class QueryUtils {
                 if (currSaleInfo.has("webReaderLink")) {
                     webReaderLink = currSaleInfo.getString("webReaderLink");
                 } else {
-                    webReaderLink = "";
+                    webReaderLink = mContext.getResources().getString(R.string.no_webreaderlink);
                 }
 
                 // Create a new {@link Book} object from the JSON response.

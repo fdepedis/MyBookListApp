@@ -36,11 +36,8 @@ public class BookAdapter extends ArrayAdapter<Book> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         String imageIcon;
-        String author;
-        double price;
-        String currencyCode;
         float averageRating;
-        String publishedDate;
+
 
         // Check if there is an existing list item view (called convertView) that we can reuse,
         // otherwise, if convertView is not null, then inflate a new list item layout.
@@ -62,12 +59,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
         holder.tvTitle.setText(currentBook.getmTitle());
 
         // Set authors of the book if available
-        author = currentBook.getmAuthor();
-        if(!author.isEmpty()){
-            holder.tvAuthors.setText(author);
-        } else {
-            holder.tvAuthors.setText(R.string.no_author);
-        }
+        holder.tvAuthors.setText(currentBook.getmAuthor());
 
         // Set image icon of the book if available.
         // Use Picasso library to load url thumbnail
@@ -79,21 +71,10 @@ public class BookAdapter extends ArrayAdapter<Book> {
         }
 
         // Set the published date if available
-        publishedDate = currentBook.getmPublishedDate();
-        if(!publishedDate.isEmpty()){
-            holder.tvPublishedDate.setText(publishedDate);
-        } else {
-            holder.tvPublishedDate.setText(R.string.no_date);
-        }
+        holder.tvPublishedDate.setText(currentBook.getmPublishedDate());
 
         // Set the price of the book if available
-        price = currentBook.getmAmount();
-        currencyCode = currentBook.getmCurrencyCode();
-        if (price != 0.0) {
-            holder.tvPrice.setText(String.valueOf(price) + " " + currencyCode);
-        } else {
-            holder.tvPrice.setText(R.string.no_price);
-        }
+        holder.tvPrice.setText(currentBook.getmAmount() + " " + currentBook.getmCurrencyCode());
 
         // Set the average rating of the book
         averageRating = (float) currentBook.getmAverageRating();

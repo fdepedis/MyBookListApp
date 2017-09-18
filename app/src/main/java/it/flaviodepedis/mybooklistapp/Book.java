@@ -61,7 +61,7 @@ public class Book implements Serializable {
     /**
      * Price of the book
      */
-    private double mAmount;
+    private String mAmount;
 
     /**
      * Currency of the book
@@ -98,7 +98,7 @@ public class Book implements Serializable {
      */
     public Book(String mTitle, String mAuthor, String mPublisher, String mPublishedDate,
                 String mDescription, int mPageCount, String mPrintType, String mCategory,
-                double mAverageRating, String mThumbnail, double mAmount, String mCurrencyCode,
+                double mAverageRating, String mThumbnail, String mAmount, String mCurrencyCode,
                 boolean isEbook, boolean isEpub, boolean isPdf, String mBuyLink, String mWebReaderLink) {
 
         this.mTitle = mTitle;
@@ -193,7 +193,7 @@ public class Book implements Serializable {
     /**
      * Returns the price of the book.
      */
-    public double getmAmount() {
+    public String getmAmount() {
         return mAmount;
     }
 
@@ -312,7 +312,7 @@ public class Book implements Serializable {
     /**
      * Set the price of the book.
      */
-    public void setmAmount(double mAmount) {
+    public void setmAmount(String mAmount) {
         this.mAmount = mAmount;
     }
 

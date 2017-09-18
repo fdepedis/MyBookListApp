@@ -6,7 +6,10 @@
     <string name="app_name_splash">Book Listing</string>
 
     <!-- Text to display book list label in activity -->
-    <string name="label_booklist">Book Listing</string>
+    <string name="label_booklist">Book List</string>
+
+    <!-- Text to display book list details label in activity -->
+    <string name="label_booklist_detail">Book List Detail</string>
 
     <!-- Text to display label of main activity -->
     <string name="label_main">Book Search</string>
@@ -23,6 +26,9 @@
     <!-- Text to display no book information services -->
     <string name="no_book">No book available</string>
 
+    <!-- Text to display no title information -->
+    <string name="no_title">No title available</string>
+
     <!-- Text to display no author information -->
     <string name="no_author">No author available</string>
 
@@ -31,5 +37,23 @@
 
     <!-- Text to display no price information -->
     <string name="no_price">No price</string>
+
+    <!-- Text to display no publisher information -->
+    <string name="no_publisher">No publisher available</string>
+
+    <!-- Text to display no description information -->
+    <string name="no_description">No description available</string>
+
+    <!-- Text to display no print type information -->
+    <string name="no_print_type">No print type available</string>
+
+    <!-- Text to display no category information -->
+    <string name="no_category">No category available</string>
+
+    <!-- Text to display no buy link information -->
+    <string name="no_buylink">No buy link available</string>
+
+    <!-- Text to display no web reader link information -->
+    <string name="no_webreaderlink">No web reader link available</string>
 
 </resources>
