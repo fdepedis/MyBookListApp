@@ -12,10 +12,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.squareup.picasso.Picasso;
 
-import java.net.URL;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -143,7 +141,9 @@ public class BookDetailActivity extends AppCompatActivity {
                 if (!urlPreviewBook.contains("http")) {
                     Toast.makeText(getApplicationContext(), getResources().getString(R.string.no_webreaderlink), Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlPreviewBook));
+                    //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlPreviewBook));
+                    Intent intent = new Intent(BookDetailActivity.this, WebViewActivity.class);
+                    intent.putExtra("urlPreviewBook", urlPreviewBook);
                     startActivity(intent);
                 }
             }

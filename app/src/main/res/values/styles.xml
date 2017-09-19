@@ -14,7 +14,7 @@
     </style>
 
     <!-- Primary TextView Detail Style -->
-    <style name="PrimaryTextDetailStyle" >
+    <style name="PrimaryTextDetailStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:ellipsize">end</item>
@@ -24,31 +24,31 @@
     </style>
 
     <!-- Secondary TextView Detail Style -->
-    <style name="SecondaryTextDetailStyle" parent="PrimaryTextDetailStyle" >
+    <style name="SecondaryTextDetailStyle" parent="PrimaryTextDetailStyle">
         <item name="android:textAppearance">?android:textAppearanceSmall</item>
         <item name="android:textColor">@color/secondary_text</item>
     </style>
 
     <!-- Description Title Detail Style -->
-    <style name="DescTitleDetailStyle" parent="PrimaryTextDetailStyle" >
+    <style name="DescTitleDetailStyle" parent="PrimaryTextDetailStyle">
         <item name="android:textColor">@color/colorDescDetailActivity</item>
         <item name="android:textStyle">bold</item>
     </style>
 
     <!-- Description Body Detail Style -->
-    <style name="DescBodyDetailStyle" parent="SecondaryTextDetailStyle" >
+    <style name="DescBodyDetailStyle" parent="SecondaryTextDetailStyle">
         <item name="android:maxLines">20</item>
         <item name="android:textColor">@color/colorDescDetailActivity</item>
     </style>
 
     <!-- Book Detail Style -->
-    <style name="BookDetailStyle" parent="SecondaryTextDetailStyle" >
+    <style name="BookDetailStyle" parent="SecondaryTextDetailStyle">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorDescDetailActivity</item>
     </style>
 
     <!-- Link Detail -->
-    <style name="LinkDetailStyle" >
+    <style name="LinkDetailStyle">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_margin">@dimen/margin_button</item>
@@ -61,7 +61,7 @@
     </style>
 
     <!-- Price Book Style -->
-    <style name="PriceBookStyle" >
+    <style name="PriceBookStyle">
         <item name="android:layout_width">@dimen/pricing_size</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_alignParentEnd">true</item>
@@ -75,6 +75,14 @@
         <item name="android:textColor">@color/colorPriceText</item>
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

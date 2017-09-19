@@ -15,7 +15,7 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:label="@string/label_main"></activity>
+            android:label="@string/label_main" />
         <activity
             android:name=".SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
@@ -43,6 +43,12 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".BookActivity" />
+        </activity>
+        <activity
+            android:name=".WebViewActivity"
+            android:label="@string/label_webview_book"
+            android:parentActivityName=".BookDetailActivity">
+
         </activity>
     </application>
 
