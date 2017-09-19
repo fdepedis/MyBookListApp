@@ -203,172 +203,175 @@ public final class QueryUtils {
 
             baseJsonResponse = new JSONObject(bookJSON);
 
-            baseJsonArray = baseJsonResponse.getJSONArray("items");
+            // verify if "items" exists
+            if (baseJsonResponse.has("items")) {
+                baseJsonArray = baseJsonResponse.getJSONArray("items");
 
-            for (int i = 0; i < baseJsonArray.length(); i++) {
+                for (int i = 0; i < baseJsonArray.length(); i++) {
 
-                itemBook = baseJsonArray.getJSONObject(i);
+                    itemBook = baseJsonArray.getJSONObject(i);
 
-                // current volume information
-                currVolumeInfo = itemBook.getJSONObject("volumeInfo");
+                    // current volume information
+                    currVolumeInfo = itemBook.getJSONObject("volumeInfo");
 
-                // current sales information
-                currSaleInfo = itemBook.getJSONObject("saleInfo");
+                    // current sales information
+                    currSaleInfo = itemBook.getJSONObject("saleInfo");
 
-                // current access information
-                currAccessInfo = itemBook.getJSONObject("accessInfo");
+                    // current access information
+                    currAccessInfo = itemBook.getJSONObject("accessInfo");
 
-                // Get value for Title if the key exists
-                if (currVolumeInfo.has("title")) {
-                    title = currVolumeInfo.getString("title");
-                } else {
-                    title = mContext.getResources().getString(R.string.no_title);
-                }
+                    // Get value for Title if the key exists
+                    if (currVolumeInfo.has("title")) {
+                        title = currVolumeInfo.getString("title");
+                    } else {
+                        title = mContext.getResources().getString(R.string.no_title);
+                    }
 
-                // Get List of Author if there are more than one, if exist
-                if (currVolumeInfo.has("authors")) {
-                    authorsArray = currVolumeInfo.getJSONArray("authors");
+                    // Get List of Author if there are more than one, if exist
+                    if (currVolumeInfo.has("authors")) {
+                        authorsArray = currVolumeInfo.getJSONArray("authors");
 
-                    // Verify if the author is one or more then one
-                    if (authorsArray.length() > 1) {
-                        authorsList = authorsArray.join(", ").replaceAll("\"", "");
-                    } else if (authorsArray.length() == 1) {
-                        authorsList = authorsArray.getString(0);
-                    } else if (authorsArray.length() == 0) {
+                        // Verify if the author is one or more then one
+                        if (authorsArray.length() > 1) {
+                            authorsList = authorsArray.join(", ").replaceAll("\"", "");
+                        } else if (authorsArray.length() == 1) {
+                            authorsList = authorsArray.getString(0);
+                        } else if (authorsArray.length() == 0) {
+                            authorsList = mContext.getResources().getString(R.string.no_author);
+                        }
+                    } else {
                         authorsList = mContext.getResources().getString(R.string.no_author);
                     }
-                } else {
-                    authorsList = mContext.getResources().getString(R.string.no_author);
-                }
 
-                // Get value for average rating if the key exists
-                if (currVolumeInfo.has("averageRating")) {
-                    averageRating = currVolumeInfo.getDouble("averageRating");
-                } else {
-                    averageRating = 0.0;
-                }
+                    // Get value for average rating if the key exists
+                    if (currVolumeInfo.has("averageRating")) {
+                        averageRating = currVolumeInfo.getDouble("averageRating");
+                    } else {
+                        averageRating = 0.0;
+                    }
 
-                // Get the published date of the book if the key exists
-                if (currVolumeInfo.has("publishedDate")) {
-                    publishedDate = currVolumeInfo.getString("publishedDate");
-                    // verify to format correct published date
-                    //if (publishedDate.contains("T")) {
+                    // Get the published date of the book if the key exists
+                    if (currVolumeInfo.has("publishedDate")) {
+                        publishedDate = currVolumeInfo.getString("publishedDate");
+                        // verify to format correct published date
+                        //if (publishedDate.contains("T")) {
                         publishedDate = publishedDate.substring(0, 4);
-                    //} else {
-                    //    publishedDate = publishedDate.substring(0, 4);
-                    //}
-                } else {
-                    publishedDate = mContext.getResources().getString(R.string.no_date);
-                }
+                        //} else {
+                        //    publishedDate = publishedDate.substring(0, 4);
+                        //}
+                    } else {
+                        publishedDate = mContext.getResources().getString(R.string.no_date);
+                    }
 
-                // Get publisher of the book if the key exists
-                if (currVolumeInfo.has("publisher")) {
-                    publisher = currVolumeInfo.getString("publisher");
-                } else {
-                    publisher = mContext.getResources().getString(R.string.no_publisher);
-                }
+                    // Get publisher of the book if the key exists
+                    if (currVolumeInfo.has("publisher")) {
+                        publisher = currVolumeInfo.getString("publisher");
+                    } else {
+                        publisher = mContext.getResources().getString(R.string.no_publisher);
+                    }
 
-                // Get description of the book if the key exists
-                if (currVolumeInfo.has("description")) {
-                    description = currVolumeInfo.getString("description");
-                } else {
-                    description = mContext.getResources().getString(R.string.no_description);
-                }
+                    // Get description of the book if the key exists
+                    if (currVolumeInfo.has("description")) {
+                        description = currVolumeInfo.getString("description");
+                    } else {
+                        description = mContext.getResources().getString(R.string.no_description);
+                    }
 
-                // Get the thumbnail of the book if the key exists
-                if (currVolumeInfo.has("imageLinks")) {
-                    imageLinks = currVolumeInfo.getJSONObject("imageLinks");
-                    thumbnail = imageLinks.getString("thumbnail");
-                } else {
-                    thumbnail = "";
-                }
+                    // Get the thumbnail of the book if the key exists
+                    if (currVolumeInfo.has("imageLinks")) {
+                        imageLinks = currVolumeInfo.getJSONObject("imageLinks");
+                        thumbnail = imageLinks.getString("thumbnail");
+                    } else {
+                        thumbnail = "";
+                    }
 
-                // Get the page count of the book if the key exists
-                if (currVolumeInfo.has("pageCount")) {
-                    pageCount = currVolumeInfo.getInt("pageCount");
-                } else {
-                    pageCount = 0;
-                }
+                    // Get the page count of the book if the key exists
+                    if (currVolumeInfo.has("pageCount")) {
+                        pageCount = currVolumeInfo.getInt("pageCount");
+                    } else {
+                        pageCount = 0;
+                    }
 
-                // Get the print type of the book if the key exists
-                if (currVolumeInfo.has("printType")) {
-                    printType = currVolumeInfo.getString("printType");
-                } else {
-                    printType = mContext.getResources().getString(R.string.no_print_type);
-                }
+                    // Get the print type of the book if the key exists
+                    if (currVolumeInfo.has("printType")) {
+                        printType = currVolumeInfo.getString("printType");
+                    } else {
+                        printType = mContext.getResources().getString(R.string.no_print_type);
+                    }
 
-                // Get first category if there are more than one, if exist
-                if (currVolumeInfo.has("categories")) {
-                    categoryArray = currVolumeInfo.getJSONArray("categories");
-                    categoryList = categoryArray.getString(0);
-                } else {
-                    categoryList = mContext.getResources().getString(R.string.no_category);
-                }
+                    // Get first category if there are more than one, if exist
+                    if (currVolumeInfo.has("categories")) {
+                        categoryArray = currVolumeInfo.getJSONArray("categories");
+                        categoryList = categoryArray.getString(0);
+                    } else {
+                        categoryList = mContext.getResources().getString(R.string.no_category);
+                    }
 
-                // Get price and currency code of the book if the key exists
-                if (currSaleInfo.has("retailPrice")) {
-                    retailPrice = currSaleInfo.getJSONObject("retailPrice");
-                    price = String.valueOf(retailPrice.getDouble("amount"));
-                    currencyCode = retailPrice.getString("currencyCode");
-                } else {
-                    price = mContext.getResources().getString(R.string.no_price);
-                    currencyCode = "";
-                }
+                    // Get price and currency code of the book if the key exists
+                    if (currSaleInfo.has("retailPrice")) {
+                        retailPrice = currSaleInfo.getJSONObject("retailPrice");
+                        price = String.valueOf(retailPrice.getDouble("amount"));
+                        currencyCode = retailPrice.getString("currencyCode");
+                    } else {
+                        price = mContext.getResources().getString(R.string.no_price);
+                        currencyCode = "";
+                    }
 
-                // Get isEbook if the key exists
-                if (currSaleInfo.has("isEbook")) {
-                    isEbook = currSaleInfo.getBoolean("isEbook");
-                } else {
-                    isEbook = false;
-                }
+                    // Get isEbook if the key exists
+                    if (currSaleInfo.has("isEbook")) {
+                        isEbook = currSaleInfo.getBoolean("isEbook");
+                    } else {
+                        isEbook = false;
+                    }
 
-                // Get buyLink url if the key exists
-                if (currSaleInfo.has("buyLink")) {
-                    buyLink = currSaleInfo.getString("buyLink");
-                } else {
-                    buyLink = mContext.getResources().getString(R.string.no_buylink);
-                }
+                    // Get buyLink url if the key exists
+                    if (currSaleInfo.has("buyLink")) {
+                        buyLink = currSaleInfo.getString("buyLink");
+                    } else {
+                        buyLink = mContext.getResources().getString(R.string.no_buylink);
+                    }
 
-                // Get indicators if ePub versions available
-                if (currAccessInfo.has("epub")) {
-                    isEpub = currAccessInfo.getJSONObject("epub");
-                    if (isEpub.has("isAvailable")) {
-                        isEpubAvailable = isEpub.getBoolean("isAvailable");
+                    // Get indicators if ePub versions available
+                    if (currAccessInfo.has("epub")) {
+                        isEpub = currAccessInfo.getJSONObject("epub");
+                        if (isEpub.has("isAvailable")) {
+                            isEpubAvailable = isEpub.getBoolean("isAvailable");
+                        } else {
+                            isEpubAvailable = false;
+                        }
                     } else {
                         isEpubAvailable = false;
                     }
-                } else {
-                    isEpubAvailable = false;
-                }
 
-                // Get indicators if PDF versions available
-                if (currAccessInfo.has("pdf")) {
-                    isPdf = currAccessInfo.getJSONObject("pdf");
-                    if (isPdf.has("isAvailable")) {
-                        isPdfAvailable = isPdf.getBoolean("isAvailable");
+                    // Get indicators if PDF versions available
+                    if (currAccessInfo.has("pdf")) {
+                        isPdf = currAccessInfo.getJSONObject("pdf");
+                        if (isPdf.has("isAvailable")) {
+                            isPdfAvailable = isPdf.getBoolean("isAvailable");
+                        } else {
+                            isPdfAvailable = false;
+                        }
                     } else {
                         isPdfAvailable = false;
                     }
-                } else {
-                    isPdfAvailable = false;
+
+                    // Get web reader url if the key exists
+                    if (currAccessInfo.has("webReaderLink")) {
+                        webReaderLink = currAccessInfo.getString("webReaderLink");
+                    } else {
+                        webReaderLink = mContext.getResources().getString(R.string.no_webreaderlink);
+                    }
+
+                    // Create a new {@link Book} object from the JSON response.
+                    Book book = new Book(title, authorsList, publisher, publishedDate, description,
+                            pageCount, printType, categoryList, averageRating, thumbnail, price, currencyCode,
+                            isEbook, isEpubAvailable, isPdfAvailable, buyLink, webReaderLink);
+
+                    // Add the new {@link Book} to the list of books.
+                    books.add(book);
+
+                    Log.i(LOG_TAG, "Log - extractFeatureFromJson() method");
                 }
-
-                // Get web reader url if the key exists
-                if (currAccessInfo.has("webReaderLink")) {
-                    webReaderLink = currAccessInfo.getString("webReaderLink");
-                } else {
-                    webReaderLink = mContext.getResources().getString(R.string.no_webreaderlink);
-                }
-
-                // Create a new {@link Book} object from the JSON response.
-                Book book = new Book(title, authorsList, publisher, publishedDate, description,
-                        pageCount, printType, categoryList, averageRating, thumbnail, price, currencyCode,
-                        isEbook, isEpubAvailable, isPdfAvailable, buyLink, webReaderLink);
-
-                // Add the new {@link Book} to the list of books.
-                books.add(book);
-
-                Log.i(LOG_TAG, "Log - extractFeatureFromJson() method");
             }
         } catch (JSONException e) {
             Log.e(LOG_TAG, "Problem parsing the book JSON results", e);
