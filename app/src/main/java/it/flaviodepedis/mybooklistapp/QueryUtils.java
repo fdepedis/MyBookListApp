@@ -354,8 +354,8 @@ public final class QueryUtils {
                 }
 
                 // Get web reader url if the key exists
-                if (currSaleInfo.has("webReaderLink")) {
-                    webReaderLink = currSaleInfo.getString("webReaderLink");
+                if (currAccessInfo.has("webReaderLink")) {
+                    webReaderLink = currAccessInfo.getString("webReaderLink");
                 } else {
                     webReaderLink = mContext.getResources().getString(R.string.no_webreaderlink);
                 }
