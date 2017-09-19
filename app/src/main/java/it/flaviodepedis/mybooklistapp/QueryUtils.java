@@ -252,9 +252,11 @@ public final class QueryUtils {
                 if (currVolumeInfo.has("publishedDate")) {
                     publishedDate = currVolumeInfo.getString("publishedDate");
                     // verify to format correct published date
-                    if (publishedDate.contains("T")) {
-                        publishedDate = publishedDate.substring(0, 10);
-                    }
+                    //if (publishedDate.contains("T")) {
+                        publishedDate = publishedDate.substring(0, 4);
+                    //} else {
+                    //    publishedDate = publishedDate.substring(0, 4);
+                    //}
                 } else {
                     publishedDate = mContext.getResources().getString(R.string.no_date);
                 }

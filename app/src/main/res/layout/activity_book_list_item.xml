@@ -23,19 +23,14 @@
                 android:id="@+id/book_icon"
                 android:layout_width="@dimen/list_item_width"
                 android:layout_height="@dimen/list_item_height"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop" />
 
             <TextView
                 android:id="@+id/tv_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/PrimaryTextDetailStyle"
                 android:layout_toEndOf="@id/book_icon"
-                android:ellipsize="end"
                 android:maxLines="1"
-                android:padding="@dimen/padding"
                 android:text="title"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@color/primary_text"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -48,18 +43,13 @@
                 <RelativeLayout
                     android:id="@+id/text_container"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/tv_author"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="@dimen/padding"
-                        android:ellipsize="end"
+                        style="@style/SecondaryTextDetailStyle"
                         android:maxLines="1"
-                        android:text="author"
-                        android:textAppearance="?android:textAppearanceSmall"
-                        android:textColor="@color/secondary_text" />
+                        android:text="authors" />
 
                     <RatingBar
                         android:id="@+id/rating_bar"
@@ -68,37 +58,23 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/tv_author"
                         android:numStars="5"
-                        android:paddingStart="@dimen/padding_start"
                         android:paddingBottom="@dimen/padding_bottom"
+                        android:paddingStart="@dimen/padding_start"
                         android:rating="4"
                         android:stepSize="0.5" />
 
                     <TextView
                         android:id="@+id/tv_publisher_date"
+                        style="@style/SecondaryTextDetailStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:layout_below="@id/rating_bar"
-                        android:paddingStart="@dimen/padding_start"
-                        android:paddingBottom="@dimen/padding_bottom"
-                        android:text="publisher date"
-                        android:textAppearance="?android:textAppearanceSmall"
-                        android:textColor="@color/secondary_text" />
+                        android:text="publisher date" />
 
                     <TextView
                         android:id="@+id/tv_price"
-                        android:layout_width="@dimen/pricing_size"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
+                        style="@style/PriceBookStyle"
                         android:layout_below="@id/tv_author"
-                        android:layout_marginTop="@dimen/margin_price"
-                        android:layout_marginEnd="@dimen/margin_price"
-                        android:padding="@dimen/padding_price"
-                        android:background="@color/colorPriceBackground"
-                        android:gravity="center"
-                        android:text="price"
-                        android:textAppearance="?android:textAppearanceMedium"
-                        android:textColor="@color/colorPriceText"
-                        android:textStyle="bold" />
+                        android:text="price" />
 
                 </RelativeLayout>
 

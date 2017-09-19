@@ -123,4 +123,5 @@ public class BookDetailActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
