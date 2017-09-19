@@ -147,6 +147,21 @@ public class BookDetailActivity extends AppCompatActivity {
                 }
             }
         });
+
+        // View of book image
+        imgIconBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String urlIconBook = currentBook.getmThumbnail();
+                if (!urlIconBook.contains("http")) {
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.no_available), Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlIconBook));
+                    startActivity(intent);
+                }
+            }
+        });
     }
 
     // When you click the back button on the ActionBar, you must be passing an intent
